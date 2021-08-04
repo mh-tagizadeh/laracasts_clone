@@ -4,18 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Role;
 
-class Role extends Model
+class Permission extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title',
+        'title', 'role_id'
     ];
 
 
-    public function permissions()
+    public function role()
     {
-        return $this->hasMany(Permission::class);
+        return $this->belongsTo(Role::class);
     }
+
+
 }
