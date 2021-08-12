@@ -16,7 +16,6 @@ class PermissionSeeder extends Seeder
     {
         Permission::create([
             'title' => 'user_management',
-            'role_id' => 1,
         ]);
     }
 }
