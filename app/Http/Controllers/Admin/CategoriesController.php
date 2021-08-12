@@ -93,7 +93,9 @@ class CategoriesController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return Inertia::render('Categories/Create', [
+            'category' => $category,
+        ]);
     }
 
     /**
@@ -105,7 +107,14 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        // TODO: complete this method.
+        $category->name = $request->name;
+
+        $category->description = $request->description;
+
+        $category->save();
+
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -116,6 +125,8 @@ class CategoriesController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return redirect()->route('categories.index');
     }
 }
