@@ -27,7 +27,7 @@
                   </div>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                  <a  class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                  <Link :href="'/admin/categories/'+category.id+'/edit'" class="text-indigo-600 hover:text-indigo-900">Edit</Link>
                   </td>
               </tr>
               </tbody>
@@ -40,7 +40,12 @@
 </template> 
 
 <script>
+import { Head, Link } from '@inertiajs/inertia-vue3'
 export default {
+    components:{
+        Head,
+        Link
+    },
     props: [
       'categories' 
     ]
