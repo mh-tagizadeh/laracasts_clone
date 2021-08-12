@@ -6,11 +6,17 @@
             </h2>
         </template>
 
-        <div class="mx-10 my-5">
+        <div class="pt-5 max-w-7xl mx-auto sm:px-6 lg:px-8">
             <Link href="categories/create" class="shadow rounded-lg bg-blue-600 text-indigo-50 p-2">Create</Link>
         </div>
 
-        <categories-table :categories="categories"/>
+        <div class="py-10">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <categories-table :categories="categories"/>
+                </div>
+            </div>
+        </div>
 
     </app-layout>
 </template>
