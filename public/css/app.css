@@ -1137,11 +1137,11 @@ select {
 .z-50 {
 	z-index: 50;
 }
-.z-40 {
-	z-index: 40;
-}
 .z-10 {
 	z-index: 10;
+}
+.z-40 {
+	z-index: 40;
 }
 .col-span-6 {
 	grid-column: span 6 / span 6;
@@ -1149,32 +1149,29 @@ select {
 .m-10 {
 	margin: 2.5rem;
 }
-.m-4 {
-	margin: 1rem;
-}
 .mx-auto {
 	margin-left: auto;
 	margin-right: auto;
-}
-.-my-2 {
-	margin-top: -0.5rem;
-	margin-bottom: -0.5rem;
 }
 .mx-10 {
 	margin-left: 2.5rem;
 	margin-right: 2.5rem;
 }
-.my-5 {
-	margin-top: 1.25rem;
-	margin-bottom: 1.25rem;
+.-my-2 {
+	margin-top: -0.5rem;
+	margin-bottom: -0.5rem;
+}
+.mx-2 {
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
 }
 .my-4 {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 }
-.mx-2 {
-	margin-left: 0.5rem;
-	margin-right: 0.5rem;
+.my-5 {
+	margin-top: 1.25rem;
+	margin-bottom: 1.25rem;
 }
 .ml-3 {
 	margin-left: 0.75rem;
@@ -1298,9 +1295,6 @@ select {
 }
 .h-32 {
 	height: 8rem;
-}
-.h-2\/3 {
-	height: 66.666667%;
 }
 .min-h-screen {
 	min-height: 100vh;
@@ -1574,10 +1568,6 @@ select {
 	--tw-border-opacity: 1;
 	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
 }
-.border-blue-600 {
-	--tw-border-opacity: 1;
-	border-color: rgba(37, 99, 235, var(--tw-border-opacity));
-}
 .bg-white {
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
@@ -1626,17 +1616,13 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
-.bg-blue-800 {
+.bg-blue-700 {
 	--tw-bg-opacity: 1;
-	background-color: rgba(30, 64, 175, var(--tw-bg-opacity));
+	background-color: rgba(29, 78, 216, var(--tw-bg-opacity));
 }
 .bg-blue-600 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(37, 99, 235, var(--tw-bg-opacity));
-}
-.bg-blue-700 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(29, 78, 216, var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
@@ -1644,14 +1630,6 @@ select {
 .object-cover {
 	-o-object-fit: cover;
 	   object-fit: cover;
-}
-.object-none {
-	-o-object-fit: none;
-	   object-fit: none;
-}
-.object-right {
-	-o-object-position: right;
-	   object-position: right;
 }
 .p-2 {
 	padding: 0.5rem;
@@ -1888,13 +1866,13 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(209, 213, 219, var(--tw-text-opacity));
 }
-.text-indigo-50 {
-	--tw-text-opacity: 1;
-	color: rgba(238, 242, 255, var(--tw-text-opacity));
-}
 .text-indigo-100 {
 	--tw-text-opacity: 1;
 	color: rgba(224, 231, 255, var(--tw-text-opacity));
+}
+.text-indigo-50 {
+	--tw-text-opacity: 1;
+	color: rgba(238, 242, 255, var(--tw-text-opacity));
 }
 .underline {
 	text-decoration: underline;
