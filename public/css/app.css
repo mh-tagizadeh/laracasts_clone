@@ -1173,6 +1173,10 @@ select {
 	margin-top: 1.25rem;
 	margin-bottom: 1.25rem;
 }
+.my-10 {
+	margin-top: 2.5rem;
+	margin-bottom: 2.5rem;
+}
 .ml-3 {
 	margin-left: 0.75rem;
 }
@@ -1244,6 +1248,12 @@ select {
 }
 .-mt-px {
 	margin-top: -1px;
+}
+.ml-5 {
+	margin-left: 1.25rem;
+}
+.ml-10 {
+	margin-left: 2.5rem;
 }
 .block {
 	display: block;
@@ -1640,6 +1650,9 @@ select {
 .p-5 {
 	padding: 1.25rem;
 }
+.p-3 {
+	padding: 0.75rem;
+}
 .px-4 {
 	padding-left: 1rem;
 	padding-right: 1rem;
@@ -2023,6 +2036,10 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(49, 46, 129, var(--tw-text-opacity));
 }
+.hover\:text-red-900:hover {
+	--tw-text-opacity: 1;
+	color: rgba(127, 29, 29, var(--tw-text-opacity));
+}
 .focus\:z-10:focus {
 	z-index: 10;
 }
@@ -2403,6 +2420,11 @@ select {
 	.lg\:px-8 {
 		padding-left: 2rem;
 		padding-right: 2rem;
+	}
+
+	.lg\:px-10 {
+		padding-left: 2.5rem;
+		padding-right: 2.5rem;
 	}
 }
 
