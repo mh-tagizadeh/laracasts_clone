@@ -28,21 +28,14 @@ import { Inertia } from '@inertiajs/inertia'
 import {usePage} from "@inertiajs/inertia-vue3";
 
 export default {
-    data() {
-        return {
-            
-        }
-    },
     setup () {
-        const form = reactive({
-            name: null,
-            description: null,
-        })
-
         const category = usePage().props.value.category;
 
-        form.name = category.name
-        form.description = category.description
+        const form = reactive({
+            name : category.name,
+            description : category.description
+        })
+
 
         function submit() {
             Inertia.put(`/admin/categories/${category.id}`, form)
