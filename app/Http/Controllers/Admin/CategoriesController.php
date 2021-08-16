@@ -11,21 +11,15 @@ use Illuminate\Support\Str;
 class CategoriesController extends Controller
 {
 
-
-    public function categories_child()
-    {
-        $categories_parent = Category::where('category_id', null)->get();
-
+    public function get_name_by_parent_categoires(Category $category) {
         $arr = array();
 
-        foreach ($categories_parent as $categories) {
-            $str = $categories->name.'/';
-            foreach ($categories->category_child as $categories_child) {
-                $str .= $categories_child->name.'/';
-            }
-            array_push($arr, $str);
-        }
-
+        array_push($arr, $category->name);
+        
+        array_push($arr, $category->category->name);
+        
+        $arr = array_reverse($arr);
+        
         return $arr;
     }
 
@@ -53,7 +47,14 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Categories/Create');
+        return Inertia::render('Categories/Create',[
+            'categories' => Category::all()->map(function($category) {
+                return [
+                    'id' => $category->id,
+                    'name' => $category->name,
+                ];
+            })
+        ]);
     }
 
     /**
@@ -68,7 +69,7 @@ class CategoriesController extends Controller
             'name' => $request->name,
             'slug' => Str::slug($request->name),
             'description' => $request->description,
-            'category_id' => '2',
+            'category_id' => $request->parent_category,
         ]);
 
         return redirect()->route('categories.index');

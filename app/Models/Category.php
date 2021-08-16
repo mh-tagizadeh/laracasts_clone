@@ -19,7 +19,7 @@ class Category extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function category_child()
+    public function categories_child()
     {
         return $this->hasMany(Category::class);
     }
