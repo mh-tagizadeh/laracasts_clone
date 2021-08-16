@@ -7,11 +7,9 @@
         </template>
 
         
-        <create-category v-if="!category"/>
-        <edit-category v-else :category="category" />
-
-
-
+        <create-category :categories='categories' v-if="!category"/>
+        <edit-category  v-else :category="category" />
+        
     </app-layout>
 </template>
 
@@ -28,7 +26,8 @@ export default {
         EditCategory
     },
     props: {
-        category: Object,
+        categories : Object,
+        category : Object,
     }
 }
 </script>
