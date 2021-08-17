@@ -8,7 +8,7 @@
 
         
         <create-category :categories='categories' v-if="!category"/>
-        <edit-category  v-else :category="category" />
+        <edit-category  v-else :category="category" :categories='categories' />
         
     </app-layout>
 </template>
