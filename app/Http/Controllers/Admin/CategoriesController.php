@@ -47,6 +47,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
+        // TODO: show categoery tree in selection parent category and show category name selected while select category 
         return Inertia::render('Categories/Create',[
             'categories' => Category::all()->map(function($category) {
                 return [
@@ -94,8 +95,15 @@ class CategoriesController extends Controller
      */
     public function edit(Category $category)
     {
+        // TODO: show old selected category in Listbox component front-end.
         return Inertia::render('Categories/Create', [
             'category' => $category,
+            'categories' => Category::all()->map(function($category) {
+                return [
+                    'id' => $category->id,
+                    'name' => $category->name,
+                ];
+            })
         ]);
     }
 
@@ -108,7 +116,7 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        // TODO: complete this method.
+        // TODO: add parent catgory for update.
         $category->name = $request->name;
 
         $category->description = $request->description;
