@@ -11,7 +11,7 @@ class Teacher extends Model
 
 
     protected $fillable = [
-        'uuid', 'first_name', 'last_name', 'username', 'slug', 'description', 'user_id'
+        'uuid', 'first_name', 'last_name', 'username', 'slug', 'description', 'user_id', 'phone_number', 'address',
     ];
 
     public function user() {

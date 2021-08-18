@@ -22,6 +22,8 @@ class CreateTeachersTable extends Migration
             $table->string('slug');
             $table->text('description');
             $table->integer('user_id');
+            $table->bigInteger('phone_number');
+            $table->text('address');
             $table->timestamps();
         });
     }
