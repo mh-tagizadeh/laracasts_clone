@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\Admin\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,14 +26,15 @@ Route::get('/', function () {
     ]);
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->name('dashboard');
 
 
 
 Route::prefix('admin')->group(function (){
     Route::resource('categories', CategoriesController::class);
+    Route::resource('users', UsersController::class);
+    Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
 });
 
 
