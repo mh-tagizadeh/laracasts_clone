@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Teacher;
 use App\Models\User;
 use App\Models\Course;
+use App\Models\Category;
 
 class CourseSeeder extends Seeder
 {
@@ -16,14 +17,27 @@ class CourseSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::factory()->state([
-            'role_id' => 3
-        ])->create();
 
-        $teacher = Teacher::factory()->state(['username' => $user->name])->for($user)->create();
+        for($i=0;$i<5;$i++)
+        {
+            $parent_category = Category::factory()->create();
+
+            for($j=0;$j<5;$j++)
+            {
+                $category = Category::factory()->for($parent_category)->create();
 
 
-        Course::factory()->for($teacher)->create();
+                for($x=0;$x<5;$x++)
+                {
+                    $user = User::factory()->state([
+                        'role_id' => 3
+                    ])->create();
 
-    }
+                    $teacher = Teacher::factory()->state(['username' => $user->name])->for($user)->create();
+
+                    Course::factory()->count(5)->for($category)->for($teacher)->create();
+                }
+           }
+       }
+   }
 }

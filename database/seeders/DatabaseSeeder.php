@@ -16,15 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Teacher::create([
-            'uuid' => 234348975234,
-            'first_name' => 'ali',
-            'last_name' => 'ahmadi',
-            'description' => 'this is a test',
-            'username' => 'username',
-            'slug' => Str::slug('username'),
-            'user_id' => 1,
-        ]);
+
         // \App\Models\User::factory(10)->create();
         // $this->call([
         //     UserSeeder::class,

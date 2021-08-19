@@ -20,6 +20,7 @@ class CreateCoursesTable extends Migration
             $table->string('slug');
             $table->text('description');
             $table->integer('teacher_id');
+            $table->integer('category_id');
             $table->boolean('state')->default(0);
             $table->integer('price');
             $table->integer('sale_price');
