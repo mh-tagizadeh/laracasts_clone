@@ -25,6 +25,7 @@ class CoursesController extends Controller
                     'category' => $course->category->name,
                     'teacher' => $course->teacher->username,
                     'status' => $course->status,
+                    'image' => $course->image ? $course->image->url : '/img/logo.svg',
                 ];
             })
         ]);
