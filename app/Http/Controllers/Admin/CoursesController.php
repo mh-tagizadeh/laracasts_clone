@@ -4,8 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course;
+use App\Models\Teacher;
+use App\Models\Category;
+use App\Models\Image;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreCoursesRequest;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class CoursesController extends Controller
 {
@@ -38,7 +44,10 @@ class CoursesController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Courses/CreateOrEdit', [
+            'teachers'=>Teacher::select('id', 'username')->get(),
+            'categories'=>Category::doesntHave('categories_child')->select('id', 'name')->get(),
+        ]);
     }
 
     /**
@@ -47,9 +56,34 @@ class CoursesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCoursesRequest $request)
     {
-        //
+        echo $request;
+        $course = Course::create([
+            'sku' => 234,
+            'title' => $request->title,
+            'slug' => Str::slug($request->slug),
+            'description' => $request->description,
+            'teacher_id' => $request->teacher,
+            'category_id' => $request->category,
+            'price' => $request->price,
+            'sale_price' => $request->price,
+            'punished_at' => $request->punished_at,
+        ]);
+
+        // $image = $request->image->store('public');
+        $image = $request->file('image')->store('images', 'public');
+
+        $url = Storage::url($image);
+
+
+        $image = Image::create([
+            'url' => $url,
+            'imageable_id' => $course->id,
+            'imageable_type' => 'App\Models\Course',
+        ]);
+
+        return redirect()->route('courses.index');
     }
 
     /**

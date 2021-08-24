@@ -12,7 +12,7 @@ class Course extends Model
 
     protected $fillable = [
         'sku', 'title', 'slug', 'description', 
-        'teacher_id','state','price', 'sale_price', 'published_at'
+        'teacher_id','state','price', 'sale_price', 'published_at', 'category_id'
     ];
 
 

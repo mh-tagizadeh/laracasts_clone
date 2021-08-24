@@ -88,13 +88,15 @@ export default {
         const form = reactive({
             name: null,
             description: null,
-            parent_category: ref(categories[0]),
+            parent_category: ref(categories[0].id),
         })
 
 
         function submit( ) {
+            console.log(form);
             Inertia.post('/admin/categories', form)
         }
+        
 
         return { form, submit }
     },

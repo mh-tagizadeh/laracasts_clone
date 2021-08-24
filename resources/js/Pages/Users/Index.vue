@@ -7,7 +7,7 @@
         </template>
 
         <div class="pt-5 max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <Link href="users/create" class="shadow rounded-lg bg-blue-600 text-indigo-50 p-2">Create</Link>
+            <Link :href="route('users.create')" class="shadow rounded-lg bg-blue-600 text-indigo-50 p-2">Create</Link>
         </div>
 
         <div class="py-10">
