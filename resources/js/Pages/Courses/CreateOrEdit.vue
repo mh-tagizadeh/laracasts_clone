@@ -6,7 +6,8 @@
             </h2>
         </template>
 
-        <create-course :teachers="teachers" :categories="categories"></create-course>
+        <create-course :teachers="teachers" :errors="errors" :categories="categories"></create-course>
+
 
     </app-layout>
 </template>
@@ -28,6 +29,7 @@
         props: {
             teachers: Object,
             categories: Object,
+            errors: Object
         },
     }
 </script>

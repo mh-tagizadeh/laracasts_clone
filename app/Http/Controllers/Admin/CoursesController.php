@@ -58,7 +58,15 @@ class CoursesController extends Controller
      */
     public function store(StoreCoursesRequest $request)
     {
+
         echo $request;
+
+        // Retrieve the validated input data...
+        $validated = $request->validated();
+
+
+
+
         $course = Course::create([
             'sku' => 234,
             'title' => $request->title,

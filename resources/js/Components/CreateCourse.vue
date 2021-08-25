@@ -7,10 +7,12 @@
                     <div class="flex flex-col p-3 gap-2">
                         <label for="title" class="text-base font-bold">Title</label>
                         <input type="text" v-model="form.title" name="title" class="w-1/2 rounded-md border-none shadow-2xl ring-1 ring-blue-400 focus:ring-blue-700 focus:ring-2">
+                        <div v-if="errors.title" class="text-red-600">{{ errors.title }}</div>
                     </div>
                     <div class="flex flex-col p-3 gap-2">
                         <label for="slug" class="text-base font-bold">Slug</label>
                         <input type="text" v-model="form.slug" name="slug" class="w-1/2 rounded-md border-none shadow-2xl ring-1 ring-blue-400 focus:ring-blue-700 focus:ring-2">
+                        <div v-if="errors.slug" class="text-red-600">{{ errors.slug}}</div>
                     </div>
                     <div class="grid grid-cols-2 gap-2 p-3">
                         <div class="">
@@ -27,6 +29,7 @@
                                 </ListboxOption>
                                 </ListboxOptions>
                             </Listbox>
+                            <div v-if="errors.category" class="text-red-600">{{ errors.category}}</div>
                         </div>
                         <div class="col-start-2">
                             <label class="text-base font-bold">Teacher</label>
@@ -42,27 +45,33 @@
                                 </ListboxOption>
                                 </ListboxOptions>
                             </Listbox>
+                            <div v-if="errors.teacher" class="text-red-600">{{ errors.teacher}}</div>
                         </div>
                     </div>
                     <div class="flex flex-col p-3 gap-2">
                         <label for="description" class="text-base font-bold">Description</label>
                         <textarea type="text" v-model="form.description" name="description" rows="5"  class="rounded-md border-none shadow-2xl ring-1 ring-blue-400 focus:ring-blue-700 focus:ring-2">
                         </textarea>
+                        <div v-if="errors.description" class="text-red-600">{{ errors.description}}</div>
                     </div>
                     <div class="flex flex-col p-3 gap-2">
                         <label for="puinshed_at" class="text-base font-bold">Punished_at</label>
-                        <input type="date" v-model="form.punishded_at" name="punished_at" class="w-1/2 rounded-md border-none shadow-2xl ring-1 ring-blue-400 focus:ring-blue-700 focus:ring-2">
+                        <input type="date" v-model="form.punished_at" name="punished_at" class="w-1/2 rounded-md border-none shadow-2xl ring-1 ring-blue-400 focus:ring-blue-700 focus:ring-2">
+                        <div v-if="errors.punished_at" class="text-red-600">{{ errors.punished_at}}</div>
                     </div>
                     <div class="flex flex-col p-3 gap-2">
                         <label for="price" class="text-base font-bold">Price</label>
                         <input type="number" name="price" v-model="form.price" class="w-1/2 rounded-md border-none shadow-2xl ring-1 ring-blue-400 focus:ring-blue-700 focus:ring-2">
+                        <div v-if="errors.price" class="text-red-600">{{ errors.price}}</div>
                     </div>
                     <div class="flex flex-col p-3 gap-2">
                         <label for="image" class="text-base font-bold">Image</label>
                         <input type="file" name="image" @input="form.image = $event.target.files[0]"  class="w-1/2 rounded-md border-none shadow-2xl ring-1 ring-blue-400 focus:ring-blue-700 focus:ring-2">
+                        <div v-if="errors.image" class="text-red-600">{{ errors.image}}</div>
                     </div>
                     <button type="submit" class="shadow-lg   bg-blue-700 rounded-full w-20 h-10 text-indigo-100 my-4">Submit</button>
                 </div>
+                <div>{{ errors }}</div>
             </form>
         </div>
     </div>
@@ -109,12 +118,9 @@ export default {
         })
 
         function submit() {
-            console.log(form)
-            console.log(form.category)
             Inertia.post('/admin/courses', form, {})
         }
 
-        console.log(form)
 
         return {
             form,
@@ -124,6 +130,7 @@ export default {
   props: {
       'categories': Object,
       'teachers': Object,
+      'errors': Object,
   }
 }
 </script>
