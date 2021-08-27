@@ -131,7 +131,6 @@ class CoursesController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        echo $request;
 
         // Retrieve the validated input data...
         // $validated = $request->validated();
