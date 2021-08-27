@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCoursesRequest;
+use App\Http\Requests\UpdateCourseRequest;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -113,7 +114,12 @@ class CoursesController extends Controller
      */
     public function edit(Course $course)
     {
-        //
+        return Inertia::render('Courses/CreateOrEdit', [
+            'course' => $course,
+            'image' => $course->image ? $course->image->url : '/img/logo.svg',
+            'teachers'=>Teacher::select('id', 'username')->get(),
+            'categories'=>Category::doesntHave('categories_child')->select('id', 'name')->get(),
+        ]);
     }
 
     /**
@@ -125,7 +131,52 @@ class CoursesController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        //
+        echo $request;
+
+        // Retrieve the validated input data...
+        // $validated = $request->validated();
+
+
+        $course->title = $request->title;
+        $course->slug = Str::slug($request->slug);
+        $course->description = $request->description;
+        $course->teacher_id = $request->teacher;
+        $course->category_id = $request->category;
+        $course->price = $request->price;
+        $course->sale_price = $request->price;
+
+        if($request->punished_at)
+        {
+            $course->published_at = $request->punished_at;
+        }
+
+
+
+
+        if($request->has('file'))
+        {
+            $image = $course->image;
+            if($image==null)
+            {
+                $path = $request->file('image')->store('images', 'public');
+                $url = Storage::url($path);
+                Image::create([
+                    'url' => $url,
+                    'imageable_id' => $course->id,
+                    'imageable_type' => 'App\Models\Course',
+                ]);
+            }
+            else {
+                $path = $request->file('image')->store('images', 'public');
+                $url = Storage::url($path);
+                $img = Image::find($course->image->id);
+                $img->url = url;
+                $img->save();
+            }
+       }
+       $course->save();
+
+       return redirect()->route('courses.index');
     }
 
     /**

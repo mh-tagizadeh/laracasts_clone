@@ -6,7 +6,8 @@
             </h2>
         </template>
 
-        <create-course :teachers="teachers" :errors="errors" :categories="categories"></create-course>
+        <create-course v-if="course == null" :teachers="teachers" :errors="errors" :categories="categories"></create-course>
+        <edit-course v-else :teachers="teachers" :errors="errors" :categories="categories" :course="course" :image="image"></edit-course>
 
 
     </app-layout>
@@ -16,6 +17,7 @@
     import AppLayout from '@/Layouts/AppLayout.vue'
     import { Head, Link } from '@inertiajs/inertia-vue3'
     import CreateCourse from '@/Components/CreateCourse.vue'
+    import EditCourse from '@/Components/EditCourse.vue'
 
 
     export default {
@@ -23,13 +25,16 @@
             AppLayout,
             Head,
             Link,
-            CreateCourse
+            CreateCourse,
+            EditCourse,
         },
       
         props: {
             teachers: Object,
             categories: Object,
-            errors: Object
+            errors: Object,
+            course: Object,
+            image: String,
         },
     }
 </script>
