@@ -53,8 +53,11 @@
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   {{ course.teacher}}
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                <td class="px-3 py-4 whitespace-nowrap text-right text-sm font-medium">
                   <a :href="route('courses.edit', course.id)" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                </td>
+                <td class="px-3 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <button @click="delete_course(course.id)" class="text-red-600 hover:text-red-900">Delete</button>
                 </td>
               </tr>
             </tbody>
@@ -66,7 +69,14 @@
 </template>
 
 <script>
+import { Inertia } from '@inertiajs/inertia'
+
 export default {
+    methods: {
+        delete_course(id) {
+            Inertia.delete(`/admin/courses/${id}`)
+        }
+    },
     props: [
         'courses'
     ]

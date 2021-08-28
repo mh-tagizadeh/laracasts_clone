@@ -60,13 +60,8 @@ class CoursesController extends Controller
     public function store(StoreCoursesRequest $request)
     {
 
-        echo $request;
-
         // Retrieve the validated input data...
         $validated = $request->validated();
-
-
-
 
         $course = Course::create([
             'sku' => 234,
@@ -129,12 +124,11 @@ class CoursesController extends Controller
      * @param  \App\Models\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Course $course)
+    public function update(UpdateCourseRequest $request, Course $course)
     {
-
+        
         // Retrieve the validated input data...
-        // $validated = $request->validated();
-
+        $validated = $request->validated();
 
         $course->title = $request->title;
         $course->slug = Str::slug($request->slug);
@@ -149,30 +143,6 @@ class CoursesController extends Controller
             $course->published_at = $request->punished_at;
         }
 
-
-
-
-        if($request->has('file'))
-        {
-            $image = $course->image;
-            if($image==null)
-            {
-                $path = $request->file('image')->store('images', 'public');
-                $url = Storage::url($path);
-                Image::create([
-                    'url' => $url,
-                    'imageable_id' => $course->id,
-                    'imageable_type' => 'App\Models\Course',
-                ]);
-            }
-            else {
-                $path = $request->file('image')->store('images', 'public');
-                $url = Storage::url($path);
-                $img = Image::find($course->image->id);
-                $img->url = url;
-                $img->save();
-            }
-       }
        $course->save();
 
        return redirect()->route('courses.index');
@@ -186,6 +156,8 @@ class CoursesController extends Controller
      */
     public function destroy(Course $course)
     {
-        //
+        $course->delete();
+
+        return redirect()->route('courses.index');
     }
 }
