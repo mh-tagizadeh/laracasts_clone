@@ -1116,14 +1116,44 @@ select {
 .col-span-4 {
 	grid-column: span 4 / span 4;
 }
+.col-span-2 {
+	grid-column: span 2 / span 2;
+}
+.col-span-1 {
+	grid-column: span 1 / span 1;
+}
+.col-span-8 {
+	grid-column: span 8 / span 8;
+}
+.col-span-10 {
+	grid-column: span 10 / span 10;
+}
+.col-span-5 {
+	grid-column: span 5 / span 5;
+}
+.col-span-3 {
+	grid-column: span 3 / span 3;
+}
 .col-start-2 {
 	grid-column-start: 2;
+}
+.row-span-3 {
+	grid-row: span 3 / span 3;
+}
+.row-span-2 {
+	grid-row: span 2 / span 2;
+}
+.row-span-6 {
+	grid-row: span 6 / span 6;
 }
 .float-right {
 	float: right;
 }
 .m-10 {
 	margin: 2.5rem;
+}
+.m-1 {
+	margin: 0.25rem;
 }
 .mx-auto {
 	margin-left: auto;
@@ -1148,6 +1178,26 @@ select {
 .my-2 {
 	margin-top: 0.5rem;
 	margin-bottom: 0.5rem;
+}
+.my-5 {
+	margin-top: 1.25rem;
+	margin-bottom: 1.25rem;
+}
+.my-10 {
+	margin-top: 2.5rem;
+	margin-bottom: 2.5rem;
+}
+.mx-0 {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+.my-3 {
+	margin-top: 0.75rem;
+	margin-bottom: 0.75rem;
+}
+.my-6 {
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
 }
 .ml-3 {
 	margin-left: 0.75rem;
@@ -1221,6 +1271,9 @@ select {
 .-mt-px {
 	margin-top: -1px;
 }
+.mr-4 {
+	margin-right: 1rem;
+}
 .block {
 	display: block;
 }
@@ -1271,6 +1324,27 @@ select {
 }
 .h-32 {
 	height: 8rem;
+}
+.h-1\/3 {
+	height: 33.333333%;
+}
+.h-36 {
+	height: 9rem;
+}
+.h-48 {
+	height: 12rem;
+}
+.h-3 {
+	height: 0.75rem;
+}
+.h-2 {
+	height: 0.5rem;
+}
+.h-1 {
+	height: 0.25rem;
+}
+.h-1\/2 {
+	height: 50%;
 }
 .min-h-screen {
 	min-height: 100vh;
@@ -1323,6 +1397,21 @@ select {
 .w-32 {
 	width: 8rem;
 }
+.w-1\/3 {
+	width: 33.333333%;
+}
+.w-36 {
+	width: 9rem;
+}
+.w-3 {
+	width: 0.75rem;
+}
+.w-2 {
+	width: 0.5rem;
+}
+.w-1\/4 {
+	width: 25%;
+}
 .min-w-0 {
 	min-width: 0px;
 }
@@ -1346,6 +1435,12 @@ select {
 }
 .flex-shrink-0 {
 	flex-shrink: 0;
+}
+.table-auto {
+	table-layout: auto;
+}
+.table-fixed {
+	table-layout: fixed;
 }
 .origin-top-left {
 	transform-origin: top left;
@@ -1389,6 +1484,9 @@ select {
 .list-disc {
 	list-style-type: disc;
 }
+.grid-flow-col {
+	grid-auto-flow: column;
+}
 .grid-cols-6 {
 	grid-template-columns: repeat(6, minmax(0, 1fr));
 }
@@ -1397,6 +1495,15 @@ select {
 }
 .grid-cols-2 {
 	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid-cols-3 {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-rows-3 {
+	grid-template-rows: repeat(3, minmax(0, 1fr));
+}
+.grid-rows-6 {
+	grid-template-rows: repeat(6, minmax(0, 1fr));
 }
 .flex-row {
 	flex-direction: row;
@@ -1450,6 +1557,11 @@ select {
 	--tw-divide-y-reverse: 0;
 	border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
 	border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+}
+.divide-y-8 > :not([hidden]) ~ :not([hidden]) {
+	--tw-divide-y-reverse: 0;
+	border-top-width: calc(8px * calc(1 - var(--tw-divide-y-reverse)));
+	border-bottom-width: calc(8px * var(--tw-divide-y-reverse));
 }
 .divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
 	--tw-divide-opacity: 1;
@@ -1623,8 +1735,50 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(37, 99, 235, var(--tw-bg-opacity));
 }
+.bg-blue-400 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(96, 165, 250, var(--tw-bg-opacity));
+}
+.bg-blue-300 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
+}
+.bg-indigo-900 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(49, 46, 129, var(--tw-bg-opacity));
+}
+.bg-indigo-700 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(67, 56, 202, var(--tw-bg-opacity));
+}
+.bg-green-700 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(4, 120, 87, var(--tw-bg-opacity));
+}
+.bg-green-400 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(52, 211, 153, var(--tw-bg-opacity));
+}
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
+}
+.bg-opacity-50 {
+	--tw-bg-opacity: 0.5;
+}
+.bg-opacity-90 {
+	--tw-bg-opacity: 0.9;
+}
+.bg-opacity-10 {
+	--tw-bg-opacity: 0.1;
+}
+.bg-opacity-30 {
+	--tw-bg-opacity: 0.3;
+}
+.bg-opacity-70 {
+	--tw-bg-opacity: 0.7;
+}
+.bg-auto {
+	background-size: auto;
 }
 .object-cover {
 	-o-object-fit: cover;
@@ -1644,6 +1798,12 @@ select {
 }
 .p-5 {
 	padding: 1.25rem;
+}
+.p-4 {
+	padding: 1rem;
+}
+.p-1 {
+	padding: 0.25rem;
 }
 .px-4 {
 	padding-left: 1rem;
@@ -1700,6 +1860,10 @@ select {
 .py-10 {
 	padding-top: 2.5rem;
 	padding-bottom: 2.5rem;
+}
+.px-10 {
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
 }
 .pt-6 {
 	padding-top: 1.5rem;
@@ -1787,6 +1951,9 @@ select {
 }
 .font-bold {
 	font-weight: 700;
+}
+.font-light {
+	font-weight: 300;
 }
 .uppercase {
 	text-transform: uppercase;

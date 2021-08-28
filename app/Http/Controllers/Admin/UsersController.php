@@ -58,7 +58,20 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return Inertia::render('Users/Show', [
+            'user' => User::where('id', $user->id)->get()
+            ->map(function($user){
+                return [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'email_verify' => $user->email_verified_at ? true : false,
+                    'two_factor_status' => $user->two_factor_secret ? true : false,
+                    'profile_image' => $user->profile_photo_url,
+                    'role' => $user->role->title,
+                ];
+            })
+        ]);
     }
 
     /**
