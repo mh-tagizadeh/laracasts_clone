@@ -15,10 +15,10 @@ class TeacherSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::factory()->state([
-            'role_id' => 3,
-        ])->create();
+        // $user = User::factory()->state([
+        //     'role_id' => 3,
+        // ])->create();
 
-        $teacher = Teacher::factory()->state(['username' => $user->name])->for($user)->create();
+        // $teacher = Teacher::factory()->state(['username' => $user->name])->for($user)->create();
     }
 }
