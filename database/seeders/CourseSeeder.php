@@ -29,9 +29,9 @@ class CourseSeeder extends Seeder
 
                 for($x=0;$x<5;$x++)
                 {
-                    $user = User::factory()->state([
-                        'role_id' => 3
-                    ])->create();
+                    $user = User::factory()->create();
+
+                    $user->assignRole('teacher');
 
                     $teacher = Teacher::factory()->state(['username' => $user->name])->for($user)->create();
 

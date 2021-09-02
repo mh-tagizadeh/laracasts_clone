@@ -44,7 +44,7 @@
                   </span>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {{ user.role }}
+                  {{ user.role[0] }}{{ user.role[1] ? ', '+user.role[1] : ''}}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                   <a :href="route('users.show', user.id)" class="text-indigo-600 hover:text-indigo-900">Show</a>

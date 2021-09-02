@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Spatie\Permission\Models\Role;
 
 class UsersController extends Controller
 {
@@ -22,8 +23,8 @@ class UsersController extends Controller
                     'id' => $user->id,
                     'name' => $user->name,
                     'email' => $user->email,
-                    'role' => $user->role->title,
                     'profile_photo_url' => $user->profile_photo_url,
+                    'role' => $user->roles->pluck('name'),
                 ];
             })
         ]);
@@ -68,7 +69,7 @@ class UsersController extends Controller
                     'email_verify' => $user->email_verified_at ? true : false,
                     'two_factor_status' => $user->two_factor_secret ? true : false,
                     'profile_image' => $user->profile_photo_url,
-                    'role' => $user->role->title,
+                    'role' => $user->roles->pluck('name'),
                 ];
             })
         ]);

@@ -10,7 +10,7 @@
             </div>
             <div class="col-span-2 my-10" >
                 <div class="text-xl font-bold">Role</div>
-                <div class="text-sm font-light">{{ user.role }}</div>
+                <div class="text-sm font-light">{{ user.role[0] }}{{ user.role[1] ? ' ,'+user.role[1] : ''}}</div>
             </div>
             <div class="row-span-2 col-span-10 my-10 bg-white rounded-2xl shadow-xl text-black">
                 <div class="flex justify-between my-6 ">
