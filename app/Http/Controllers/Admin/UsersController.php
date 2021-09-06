@@ -37,7 +37,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Users/CreateOrEdit');
+        //
     }
 
     /**

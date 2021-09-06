@@ -1777,11 +1777,11 @@ select {
 .pb-1 {
 	padding-bottom: 0.25rem;
 }
-.pl-4 {
-	padding-left: 1rem;
-}
 .pt-8 {
 	padding-top: 2rem;
+}
+.pl-4 {
+	padding-left: 1rem;
 }
 .text-left {
 	text-align: left;
@@ -1918,6 +1918,14 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(16, 185, 129, var(--tw-text-opacity));
 }
+.text-gray-200 {
+	--tw-text-opacity: 1;
+	color: rgba(229, 231, 235, var(--tw-text-opacity));
+}
+.text-gray-300 {
+	--tw-text-opacity: 1;
+	color: rgba(209, 213, 219, var(--tw-text-opacity));
+}
 .text-green-800 {
 	--tw-text-opacity: 1;
 	color: rgba(6, 95, 70, var(--tw-text-opacity));
@@ -1933,14 +1941,6 @@ select {
 .text-indigo-50 {
 	--tw-text-opacity: 1;
 	color: rgba(238, 242, 255, var(--tw-text-opacity));
-}
-.text-gray-200 {
-	--tw-text-opacity: 1;
-	color: rgba(229, 231, 235, var(--tw-text-opacity));
-}
-.text-gray-300 {
-	--tw-text-opacity: 1;
-	color: rgba(209, 213, 219, var(--tw-text-opacity));
 }
 .underline {
 	text-decoration: underline;
