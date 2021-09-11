@@ -31,6 +31,9 @@
                                 <jet-nav-link :href="route('courses.index')" :active="route().current('courses.index')">
                                     Courses
                                 </jet-nav-link>
+                                <jet-nav-link :href="route('teachers.index')" :active="route().current('teachers.index')">
+                                    Teachers
+                                </jet-nav-link>
                             </div>
                         </div>
 

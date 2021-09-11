@@ -14,7 +14,7 @@
                   Description
                 </th>
                 <th scope="col" class="relative px-6 py-3">
-                  <span class="sr-only">Edit</span>
+                  <span class="sr-only">answer</span>
                 </th>
               </tr>
             </thead>
@@ -33,7 +33,7 @@
                   {{ user.description }}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                  <a href="#" class="text-green-600 hover:text-green-900">Answer</a>
                 </td>
               </tr>
             </tbody>

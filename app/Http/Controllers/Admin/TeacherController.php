@@ -10,8 +10,8 @@ use App\Models\ApplyTeacher;
 class TeacherController extends Controller
 {
 
-    public function request_teachers() {
-
+    public function request_teachers()
+    {
         $teachers = ApplyTeacher::select('id', 'username', 'description')->get();
 
 
@@ -26,7 +26,7 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Teachers/Index');
     }
 
     /**

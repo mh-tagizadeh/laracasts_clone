@@ -1164,13 +1164,17 @@ select {
 	margin-top: 0.5rem;
 	margin-bottom: 0.5rem;
 }
-.my-5 {
-	margin-top: 1.25rem;
-	margin-bottom: 1.25rem;
-}
 .my-10 {
 	margin-top: 2.5rem;
 	margin-bottom: 2.5rem;
+}
+.mx-7 {
+	margin-left: 1.75rem;
+	margin-right: 1.75rem;
+}
+.my-5 {
+	margin-top: 1.25rem;
+	margin-bottom: 1.25rem;
 }
 .my-6 {
 	margin-top: 1.5rem;
@@ -1433,6 +1437,9 @@ select {
 }
 .grid-cols-2 {
 	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid-cols-3 {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .grid-rows-3 {
 	grid-template-rows: repeat(3, minmax(0, 1fr));
@@ -2005,6 +2012,10 @@ select {
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(96, 165, 250, var(--tw-ring-opacity));
 }
+.ring-white {
+	--tw-ring-opacity: 1;
+	--tw-ring-color: rgba(255, 255, 255, var(--tw-ring-opacity));
+}
 .ring-opacity-5 {
 	--tw-ring-opacity: 0.05;
 }
@@ -2105,6 +2116,10 @@ select {
 .hover\:text-red-900:hover {
 	--tw-text-opacity: 1;
 	color: rgba(127, 29, 29, var(--tw-text-opacity));
+}
+.hover\:text-green-900:hover {
+	--tw-text-opacity: 1;
+	color: rgba(6, 78, 59, var(--tw-text-opacity));
 }
 .focus\:z-10:focus {
 	z-index: 10;

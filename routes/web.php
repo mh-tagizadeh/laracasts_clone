@@ -35,8 +35,9 @@ Route::prefix('admin')->group(function (){
     Route::resource('categories', CategoriesController::class);
     Route::resource('users', UsersController::class);
     Route::resource('courses', CoursesController::class);
+    Route::resource('teachers', TeacherController::class);
 
-    Route::get('teachers/requests', [TeacherController::class, 'request_teachers']);
+    Route::get('teacher/requests', [TeacherController::class, 'request_teachers'])->name('teacher.requests');
 
     Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
         return Inertia::render('Dashboard');
