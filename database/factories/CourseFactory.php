@@ -24,7 +24,7 @@ class CourseFactory extends Factory
         $price = $this->faker->numberBetween($min = 100, $max = 9000);
         $sale_price = $this->faker->numberBetween($min = $price/2, $price);
         return [
-            'sku' => $this->faker->numberBetween($min = 1000, $max = 9000), 
+            'sku' => $this->faker->uuid(), 
             'title' => $this->faker->city(),
             'slug' => $this->faker->slug(),
             'price' => $price,

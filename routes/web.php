@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\CoursesController;
+use App\Http\Controllers\Admin\TeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,9 @@ Route::prefix('admin')->group(function (){
     Route::resource('categories', CategoriesController::class);
     Route::resource('users', UsersController::class);
     Route::resource('courses', CoursesController::class);
+
+    Route::get('teachers/requests', [TeacherController::class, 'request_teachers']);
+
     Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');

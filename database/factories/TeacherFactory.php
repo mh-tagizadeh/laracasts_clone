@@ -22,7 +22,7 @@ class TeacherFactory extends Factory
     public function definition()
     {
         return [
-            'uuid' => $this->faker->numberBetween($min = 1000, $max = 9000), 
+            'uuid' => $this->faker->uuid(), 
             'first_name' => $this->faker->firstNameMale(),
             'last_name' => $this->faker->firstNameMale(),
             'username' => $this->faker->username(),
