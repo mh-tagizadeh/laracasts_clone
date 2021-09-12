@@ -20,9 +20,18 @@ class TeacherController extends Controller
 
     public function answer_request(ApplyTeacher $request)
     {
+       $request->user; 
        return Inertia::render('Teachers/AnswerRequest', [
            'request' => $request
        ]); 
+    }
+
+
+    public function reject_request(ApplyTeacher $request)
+    {
+        $request->delete();
+
+        return redirect()->route('teacher.requests');
     }
 
     /**

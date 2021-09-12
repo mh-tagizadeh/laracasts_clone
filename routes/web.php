@@ -37,8 +37,12 @@ Route::prefix('admin')->group(function (){
     Route::resource('courses', CoursesController::class);
     Route::resource('teachers', TeacherController::class);
 
-    Route::get('teacher/requests', [TeacherController::class, 'request_teachers'])->name('teacher.requests');
-    Route::get('teacher/request/{request}', [TeacherController::class, 'answer_request'])->name('teacher.request.answer');
+    Route::prefix('teacher')->group(function () {
+        Route::get('requests', [TeacherController::class, 'request_teachers'])->name('teacher.requests');
+        Route::get('request/{request}', [TeacherController::class, 'answer_request'])->name('teacher.request.answer');
+        Route::delete('request/{request}', [TeacherController::class, 'reject_request'])->name('teacher.request.reject');
+    });
+
 
     Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
         return Inertia::render('Dashboard');

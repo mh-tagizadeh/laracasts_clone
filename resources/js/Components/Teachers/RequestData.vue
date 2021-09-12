@@ -1,13 +1,23 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
   <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-    <div class="px-4 py-5 sm:px-6">
-      <h3 class="text-lg leading-6 font-medium text-gray-900">
-        Request Information
-      </h3>
-      <p class="mt-1 max-w-2xl text-sm text-gray-500">
-          Request data for apply teacher
-      </p>
+    <div class="flex flex-row px-4 py-5 sm:px-6">
+      <div>
+        <h3 class="text-lg leading-6 font-medium text-gray-900">
+          Request Information
+        </h3>
+        <p class="mt-1 max-w-2xl text-sm text-gray-500">
+            Request data for apply teacher
+        </p>
+      </div>
+      <div class="flex-grow">
+        <div class="flex flex-row gap-2 text-white justify-end">
+          <button class="bg-green-600 py-1 px-3 rounded">Accept</button>
+          <form @submit.prevent="reject">
+            <button type="submit" class="bg-red-600 py-1 px-3 rounded">Reject</button>
+          </form>
+        </div>
+      </div>
     </div>
     <div class="border-t border-gray-200">
       <dl>
@@ -92,8 +102,19 @@
 <script>
 import { PaperClipIcon } from '@heroicons/vue/solid'
 import { Link } from '@inertiajs/inertia-vue3';
+import { Inertia } from '@inertiajs/inertia'
+import {usePage} from "@inertiajs/inertia-vue3";
 
 export default {
+  setup() {
+    const request = usePage().props.value.request;
+
+    function reject() {
+      Inertia.delete(`/admin/teacher/request/${request.id}`);
+    }
+
+    return { reject }
+  },
   components: {
     PaperClipIcon,
     Link
