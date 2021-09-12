@@ -19,7 +19,7 @@ class TeacherController extends Controller
         // Retireve the validated input data 
         $validated = $request->validated();
 
-        if(ApplyTeacher::where('user_id', Auth::id())->get()){
+        if(ApplyTeacher::where('user_id', Auth::id())->count()){
             return response()->json([
                 'message' => 'شما قبلا درخواست ارسال کرده اید.',
             ]);
@@ -38,7 +38,6 @@ class TeacherController extends Controller
             'description' => $request->description,
             'address' => $request->address,
             'phone_number' => $request->phone_number,
-            'status_answer' => false,
             'documents' => $url,
         ]);
 

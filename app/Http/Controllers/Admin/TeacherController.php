@@ -34,6 +34,12 @@ class TeacherController extends Controller
         return redirect()->route('teacher.requests');
     }
 
+    public function rejected_requests()
+    {
+        $requests = ApplyTeacher::onlyTrashed()->select('id','username', 'description')->get();
+        return Inertia::render('Teachers/RejectedRequests', ['requests' => $requests]);
+    }
+
     /**
      * Display a listing of the resource.
      *

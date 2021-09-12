@@ -23,7 +23,6 @@ class CreateApplyTeachersTable extends Migration
             $table->bigInteger('phone_number');
             $table->text('address');
             $table->string('documents');
-            $table->boolean('status_answer');
             $table->timestamps();
         });
     }

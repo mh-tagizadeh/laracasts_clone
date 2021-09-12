@@ -6,8 +6,8 @@
     <Link :href="route('courses.index')" class="ring-1 ring-white text-white py-2 text-center">
         Teachers
     </Link>
-    <Link :href="route('teacher.requests')" class="ring-1 ring-white text-white py-2 text-center">
-        Banned Teachers
+    <Link :href="route('teacher.requests.rejected')" class="ring-1 ring-white text-white py-2 text-center">
+        Rejected Teachers
     </Link>
 </div>
 </template>
