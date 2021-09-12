@@ -16,6 +16,15 @@ class TeacherController extends Controller
 
     public function request_for_apply_teacher(ApplyTeacherRequests $request)
     {
+        // Retireve the validated input data 
+        $validated = $request->validated();
+
+        if(ApplyTeacher::where('user_id', Auth::id())->get()){
+            return response()->json([
+                'message' => 'شما قبلا درخواست ارسال کرده اید.',
+            ]);
+        }
+
         $documents = $request->file('documents')->store('doucments', 'public');
 
         $url = Storage::url($documents);
