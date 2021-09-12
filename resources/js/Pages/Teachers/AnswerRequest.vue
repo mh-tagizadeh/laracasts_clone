@@ -10,7 +10,7 @@
                 <teachers-sections></teachers-sections>
             </div>
             <div class="col-span-2 my-10 mr-5">
-                <request-data :request='request' :email='email'></request-data>
+                <request-data :request='request' ></request-data>
             </div>
         </div>
     </app-layout>
@@ -29,7 +29,6 @@
         },
         props: {
             request: Object,
-            email: String,
         }
     }
 </script>

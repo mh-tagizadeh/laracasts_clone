@@ -7,13 +7,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\ApplyTeacher;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ApplyTeacherRequests;
 
 
 class TeacherController extends Controller
 {
 
 
-    public function request_for_apply_teacher(Request $request)
+    public function request_for_apply_teacher(ApplyTeacherRequests $request)
     {
         $documents = $request->file('documents')->store('doucments', 'public');
 

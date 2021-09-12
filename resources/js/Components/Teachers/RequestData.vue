@@ -23,8 +23,11 @@
           <dt class="text-sm font-medium text-gray-500">
             Username
           </dt>
-          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+          <dd class="flex flex-row  mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
             {{ request.username }}
+          <div class="flex-grow  text-right ">
+            <Link class="text-indigo-600 hover:text-indigo-900 pr-6" :href="route('users.show', request.user.id)">show</Link>
+          </div>
           </dd>
         </div>
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -32,7 +35,7 @@
               Email
           </dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {{ email }}
+              {{ request.user.email }}
           </dd>
         </div>
         <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -88,14 +91,15 @@
 
 <script>
 import { PaperClipIcon } from '@heroicons/vue/solid'
+import { Link } from '@inertiajs/inertia-vue3';
 
 export default {
   components: {
     PaperClipIcon,
+    Link
   },
   props: {
-      request: Object,
-      email: String,
+      request: Object
   }
 }
 </script>

@@ -21,8 +21,7 @@ class TeacherController extends Controller
     public function answer_request(ApplyTeacher $request)
     {
        return Inertia::render('Teachers/AnswerRequest', [
-           'request' => $request,
-           'email' => $request->user->email,
+           'request' => $request
        ]); 
     }
 
