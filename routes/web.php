@@ -38,6 +38,7 @@ Route::prefix('admin')->group(function (){
     Route::resource('teachers', TeacherController::class);
 
     Route::get('teacher/requests', [TeacherController::class, 'request_teachers'])->name('teacher.requests');
+    Route::get('teacher/request/{request}', [TeacherController::class, 'answer_request'])->name('teacher.request.answer');
 
     Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
         return Inertia::render('Dashboard');
