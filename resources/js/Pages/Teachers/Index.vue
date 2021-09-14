@@ -9,8 +9,9 @@
             <div>
                 <teachers-sections></teachers-sections>
             </div>
-            <div></div>
-            <div></div>
+            <div class="col-span-2 my-10 pr-3">
+                <teachers-table :teachers="teachers.data"></teachers-table>
+            </div>
         </div>
     </app-layout>
 </template>
@@ -18,13 +19,16 @@
 <script>
     import AppLayout from '@/Layouts/AppLayout.vue'
     import TeachersSections from '@/Components/Teachers/Sections'
+    import TeachersTable from '@/Components/Teachers/Table'
 
     export default {
         components: {
             AppLayout,
-            TeachersSections
+            TeachersSections,
+            TeachersTable
         },
         props: {
+            teachers: Object,
         }
     }
 </script>
