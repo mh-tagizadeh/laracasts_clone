@@ -12,7 +12,9 @@
       </div>
       <div class="flex-grow">
         <div class="flex flex-row gap-2 text-white justify-end">
-          <button class="bg-green-600 py-1 px-3 rounded">Accept</button>
+          <form @submit.prevent="accept">
+            <button type="submit" class="bg-green-600 py-1 px-3 rounded">Accept</button>
+          </form>
           <form @submit.prevent="reject">
             <button type="submit" class="bg-red-600 py-1 px-3 rounded">Reject</button>
           </form>
@@ -112,8 +114,12 @@ export default {
     function reject() {
       Inertia.delete(`/admin/teacher/request/${request.id}`);
     }
+    
+    function accept() {
+      Inertia.post(`/admin/teacher/request/${request.id}`);
+    }
 
-    return { reject }
+    return { reject, accept }
   },
   components: {
     PaperClipIcon,

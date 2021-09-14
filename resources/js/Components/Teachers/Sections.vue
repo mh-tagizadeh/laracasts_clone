@@ -3,7 +3,7 @@
     <Link :href="route('teacher.requests')" class="ring-1 ring-white text-white py-2 text-center">
         Requests
     </Link>
-    <Link :href="route('courses.index')" class="ring-1 ring-white text-white py-2 text-center">
+    <Link :href="route('teachers.index')" class="ring-1 ring-white text-white py-2 text-center">
         Teachers
     </Link>
     <Link :href="route('teacher.requests.rejected')" class="ring-1 ring-white text-white py-2 text-center">

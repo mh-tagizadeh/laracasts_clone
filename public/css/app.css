@@ -1258,6 +1258,12 @@ select {
 .mr-5 {
 	margin-right: 1.25rem;
 }
+.mb-1 {
+	margin-bottom: 0.25rem;
+}
+.mt-0 {
+	margin-top: 0px;
+}
 .block {
 	display: block;
 }
@@ -1461,6 +1467,9 @@ select {
 }
 .flex-wrap {
 	flex-wrap: wrap;
+}
+.place-content-center {
+	place-content: center;
 }
 .items-center {
 	align-items: center;
@@ -1805,6 +1814,9 @@ select {
 }
 .pr-6 {
 	padding-right: 1.5rem;
+}
+.pr-3 {
+	padding-right: 0.75rem;
 }
 .text-left {
 	text-align: left;

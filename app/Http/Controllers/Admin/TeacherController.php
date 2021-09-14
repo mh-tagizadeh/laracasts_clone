@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 use App\Models\ApplyTeacher;
+use App\Models\Teacher;
+use App\Http\Resources\TeacherResource;
 
 class TeacherController extends Controller
 {
@@ -34,6 +37,25 @@ class TeacherController extends Controller
         return redirect()->route('teacher.requests');
     }
 
+    public function accept_request(ApplyTeacher $request)
+    {
+        Teacher::create([
+            'uuid' => Str::uuid(),
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'username' => $request->username,
+            'user_id' => $request->user_id,
+            'slug' => Str::slug($request->username),
+            'description' => $request->description,
+            'phone_number' => $request->phone_number,
+            'address' => $request->address,
+        ]);
+
+        $request->forceDelete();
+
+        return redirect()->route('teachers.index');
+    }
+
     public function rejected_requests()
     {
         $requests = ApplyTeacher::onlyTrashed()->select('id','username', 'description')->get();
@@ -47,7 +69,9 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Teachers/Index');
+        return Inertia::render('Teachers/Index', [
+            'teachers' => TeacherResource::collection(Teacher::all())
+        ]);
     }
 
     /**
