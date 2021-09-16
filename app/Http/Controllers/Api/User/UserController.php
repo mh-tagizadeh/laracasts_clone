@@ -67,6 +67,16 @@ class UserController extends Controller
 
         if($user->teacher)
         {
+            $courses = Course::where('teacher_id', $user->teacher->id)->get();
+            
+            if($courses)
+            {
+                foreach($courses as $course)
+                {
+                    $course->delete();
+                }
+            }
+           
             $user->teacher->delete();
         }
 

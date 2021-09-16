@@ -93,6 +93,13 @@ class TeacherController extends Controller
     {
         $user = Auth::user();
 
+        $courses = Course::where('teacher_id', $user->teacher->id)->get();
+        
+        foreach($courses as $course)
+        {
+            $course->delete();
+        }
+
         $user->teacher->delete();
 
         return response()->json([
