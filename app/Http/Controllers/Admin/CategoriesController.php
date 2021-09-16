@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Course;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
@@ -127,6 +128,10 @@ class CategoriesController extends Controller
     public function destroy(Category $category)
     {
         if($category->categories_child->count() != 0)
+        {
+            abort(403);
+        }
+        if (Course::where('category_id', $category->id)->count())
         {
             abort(403);
         }
