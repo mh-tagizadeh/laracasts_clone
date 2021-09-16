@@ -51,12 +51,7 @@ class CategoriesController extends Controller
     {
         // TODO: show categoery tree in selection parent category and show category name selected while select category 
         return Inertia::render('Categories/Create',[
-            'categories' => Category::all()->map(function($category) {
-                return [
-                    'id' => $category->id,
-                    'name' => $category->name,
-                ];
-            })
+            'categories' => Category::where('category_id', null)->get()
         ]);
     }
 
