@@ -65,6 +65,11 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
+        if($user->teacher)
+        {
+            $user->teacher->delete();
+        }
+
         $user->delete();
 
         return response()->json([
