@@ -6,9 +6,18 @@
             </h2>
         </template>
 
+
+        <div class="grid grid-cols-3">
+            <div>
+                <categories-sections></categories-sections>
+            </div>
+            <div class="col-span-2 my-10 pr-3">
+                <create-category :categories='categories' v-if="!category"/>
+                <edit-category  v-else :category="category" :categories='categories' />
+            </div>
+        </div>
+
         
-        <create-category :categories='categories' v-if="!category"/>
-        <edit-category  v-else :category="category" :categories='categories' />
         
     </app-layout>
 </template>
@@ -17,13 +26,15 @@
 import AppLayout from '@/Layouts/AppLayout.vue'
 import CreateCategory from '@/Jetstream/CreateCategory.vue'
 import EditCategory from '@/Jetstream/EditCategory.vue'
+import CategoriesSections from '@/Components/Categories/Sections.vue'
 
 
 export default {
     components: {
         AppLayout,
         CreateCategory,
-        EditCategory
+        EditCategory,
+        CategoriesSections
     },
     props: {
         categories : Object,

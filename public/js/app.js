@@ -32297,6 +32297,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout.vue */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _Jetstream_CreateCategory_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Jetstream/CreateCategory.vue */ "./resources/js/Jetstream/CreateCategory.vue");
 /* harmony import */ var _Jetstream_EditCategory_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Jetstream/EditCategory.vue */ "./resources/js/Jetstream/EditCategory.vue");
+/* harmony import */ var _Components_Categories_Sections_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/Categories/Sections.vue */ "./resources/js/Components/Categories/Sections.vue");
+
 
 
 
@@ -32304,7 +32306,8 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__.default,
     CreateCategory: _Jetstream_CreateCategory_vue__WEBPACK_IMPORTED_MODULE_1__.default,
-    EditCategory: _Jetstream_EditCategory_vue__WEBPACK_IMPORTED_MODULE_2__.default
+    EditCategory: _Jetstream_EditCategory_vue__WEBPACK_IMPORTED_MODULE_2__.default,
+    CategoriesSections: _Components_Categories_Sections_vue__WEBPACK_IMPORTED_MODULE_3__.default
   },
   props: {
     categories: Object,
@@ -35393,7 +35396,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "py-12"
+  "class": ""
 };
 var _hoisted_2 = {
   "class": "max-w-7xl mx-auto sm:px-6 lg:px-8"
@@ -38562,7 +38565,15 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 /* HOISTED */
 );
 
+var _hoisted_2 = {
+  "class": "grid grid-cols-3"
+};
+var _hoisted_3 = {
+  "class": "col-span-2 my-10 pr-3"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_categories_sections = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("categories-sections");
+
   var _component_create_category = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("create-category");
 
   var _component_edit_category = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("edit-category");
@@ -38576,7 +38587,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [_hoisted_1];
     }),
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [!$props.category ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_create_category, {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_categories_sections)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [!$props.category ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_create_category, {
         key: 0,
         categories: $props.categories
       }, null, 8
@@ -38587,7 +38598,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         categories: $props.categories
       }, null, 8
       /* PROPS */
-      , ["category", "categories"]))];
+      , ["category", "categories"]))])])];
     }),
     _: 1
     /* STABLE */
