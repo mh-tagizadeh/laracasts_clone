@@ -95,12 +95,7 @@ class CategoriesController extends Controller
         // TODO: show old selected category in Listbox component front-end.
         return Inertia::render('Categories/Create', [
             'category' => $category,
-            'categories' => Category::all()->map(function($category) {
-                return [
-                    'id' => $category->id,
-                    'name' => $category->name,
-                ];
-            })
+            'categories' => Category::where('category_id', null)->get(),
         ]);
     }
 
