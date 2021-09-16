@@ -136,6 +136,10 @@ class CategoriesController extends Controller
      */
     public function destroy(Category $category)
     {
+        if($category->categories_child->count() != 0)
+        {
+            abort(403);
+        }
         $category->delete();
 
         return redirect()->route('categories.index');
