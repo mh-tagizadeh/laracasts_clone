@@ -29,11 +29,14 @@ Route::middleware('auth:sanctum')->get('/logout', [AuthController::class, 'logou
 Route::middleware('auth:sanctum')->prefix('users')->group(function() {
     Route::get('profile', [UserController::class, 'profile']);
     Route::post('update', [UserController::class, 'update']);
-    Route::delete('delete', [UserController::class, 'destroy']);
+    Route::delete('delete', [UserController::class, 'delete']);
 });
 
 
 
 Route::middleware('auth:sanctum')->prefix('teachers')->group(function() {
     Route::post('/request-for-apply-teacher' , [TeacherController::class, 'request_for_apply_teacher']);
+    Route::get('profile', [TeacherController::class, 'profile']);
+    Route::post('update' , [TeacherController::class, 'update']);
+    Route::delete('delete', [TeacherController::class, 'delete']);
 });

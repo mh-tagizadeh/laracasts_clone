@@ -9,6 +9,7 @@ use Inertia\Inertia;
 use App\Models\ApplyTeacher;
 use App\Models\Teacher;
 use App\Http\Resources\TeacherResource;
+use App\Http\Resources\TeacherCollection;
 
 class TeacherController extends Controller
 {
@@ -70,7 +71,7 @@ class TeacherController extends Controller
     public function index()
     {
         return Inertia::render('Teachers/Index', [
-            'teachers' => TeacherResource::collection(Teacher::all())
+            'teachers' => new TeacherCollection(Teacher::all())
         ]);
     }
 
