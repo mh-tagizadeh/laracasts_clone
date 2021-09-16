@@ -31,12 +31,14 @@ class CategoriesController extends Controller
     public function index()
     {
         return Inertia::render('Categories/Index', [
-            'categories' => Category::all()->map(function($category){
-                return [
-                    'id' => $category->id,
-                    'name' => $category->name,
-                ];
-            })
+            'categories' => Category::has('category')->get(),        
+        ]);
+    }
+
+    public function get_parent_categories()
+    {
+        return Inertia::render('Categories/Index', [
+            'categories' => Category::has('categories_child')->get(),        
         ]);
     }
 
