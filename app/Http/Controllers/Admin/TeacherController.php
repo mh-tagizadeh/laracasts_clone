@@ -52,6 +52,9 @@ class TeacherController extends Controller
             'address' => $request->address,
         ]);
 
+        $user = User::find($request->user_id);
+        $user->assignRole('teacher');
+
         $request->forceDelete();
 
         return redirect()->route('teachers.index');
