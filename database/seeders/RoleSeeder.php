@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Spatie\Permission\Models\Role;
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
 class RoleSeeder extends Seeder
 {
@@ -25,5 +26,8 @@ class RoleSeeder extends Seeder
         Role::create([
             'name' => 'teacher',
         ]);
+
+        $user = User::where('email', 'admin@admin.com')->first();
+        $user->assignRole('admin');
     }
 }
