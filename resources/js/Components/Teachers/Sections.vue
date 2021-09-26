@@ -9,6 +9,9 @@
     <Link :href="route('teacher.requests.rejected')" class="ring-1 ring-white text-white py-2 text-center">
         Rejected Teachers
     </Link>
+    <Link :href="route('teacher.course.requests')" class="ring-1 ring-white text-white py-2 text-center">
+        Course Requests
+    </Link>
 </div>
 </template>
 

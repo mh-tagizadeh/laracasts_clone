@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
 use App\Models\ApplyTeacher;
+use App\Models\RequestCourse;
 use App\Models\Teacher;
 use App\Http\Resources\TeacherResource;
 use App\Http\Resources\TeacherCollection;
@@ -64,6 +65,16 @@ class TeacherController extends Controller
     {
         $requests = ApplyTeacher::onlyTrashed()->select('id','username', 'description')->get();
         return Inertia::render('Teachers/RejectedRequests', ['requests' => $requests]);
+    }
+
+
+    public function requests_course()
+    {
+        $requests = RequestCourse::all();
+
+        return Inertia::render('Teachers/RequestsCourse', [
+            'requests' => $requests
+        ]);
     }
 
     /**
