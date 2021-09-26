@@ -123,4 +123,15 @@ class TeacherController extends Controller
 
         return redirect()->route('courses.index');
     }
+
+
+    public function rejected_courses()
+    {
+        $requests = RequestCourse::onlyTrashed()->get();
+
+
+        return Inertia::render('Teachers/RequestsCourse', [
+            'requests' => $requests
+        ]);
+    }
 }

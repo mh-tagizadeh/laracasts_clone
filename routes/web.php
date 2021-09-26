@@ -48,6 +48,7 @@ Route::prefix('admin')->group(function (){
         Route::get('request/course/{request}', [TeacherController::class, 'answer_request_course'])->name('teacher.request.course.answer');
         Route::post('request/course/{request}', [TeacherController::class, 'accept_request_course'])->name('teacher.request.course.accept');
         Route::delete('request/course/{request}', [TeacherController::class, 'reject_request_course'])->name('teacher.request.course.reject');
+        Route::get('requests/courses/rejected', [TeacherController::class, 'rejected_courses'])->name('teacher.course.rejected');
     });
 
 
