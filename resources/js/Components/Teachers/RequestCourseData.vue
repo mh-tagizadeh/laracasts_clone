@@ -82,11 +82,11 @@ export default {
     const request = usePage().props.value.request;
 
     function reject() {
-      Inertia.delete(`/admin/teacher/request/${request.id}`);
+      Inertia.delete(`/admin/teacher/request/course/${request.id}`);
     }
     
     function accept() {
-      Inertia.post(`/admin/teacher/request/${request.id}`);
+      Inertia.post(`/admin/teacher/request/course/${request.id}`);
     }
 
     return { reject, accept }

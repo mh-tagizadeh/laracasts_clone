@@ -20,6 +20,7 @@ class CreateRequestCoursesTable extends Migration
             $table->text('description_for_admin');
             $table->integer('offer_price');
             $table->integer('teacher_id');
+            $table->integer('category_id');
             $table->timestamps();
         });
     }

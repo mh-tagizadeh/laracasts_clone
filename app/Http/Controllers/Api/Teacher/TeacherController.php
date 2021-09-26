@@ -121,6 +121,7 @@ class TeacherController extends Controller
             'offer_price' => $request->offer_price,
             'description_for_admin' => $request->description_for_admin,
             'teacher_id' => $teacher,
+            'category_id' => $request->category_id,
         ]);
 
         return response()->json('susccesfuly');

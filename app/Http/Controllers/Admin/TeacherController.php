@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Inertia\Inertia;
 use App\Models\ApplyTeacher;
 use App\Models\RequestCourse;
+use App\Models\Course;
 use App\Models\Teacher;
 use App\Http\Resources\TeacherResource;
 use App\Http\Resources\TeacherCollection;
@@ -94,5 +95,26 @@ class TeacherController extends Controller
         $request->teacher;
         $request->teacher->user;
         return Inertia::render('Teachers/AnswerRequestCourse', [ 'request' => $request ]);
+    }
+
+
+    public function accept_request_course(RequestCourse $request)
+    {
+        Course::create([
+            'sku' => Str::uuid(),
+            'title' => $request->title,
+            'slug' => Str::slug($request->title),
+            'description' => $request->description,
+            'teacher_id' => $request->teacher->id,
+            'state' => false,
+            'price' => $request->offer_price,
+            'sale_price' => $request->offer_price,
+            'published_at' => now(),
+            'category_id' => $request->category_id,
+        ]);
+
+        $request->delete();
+
+        return redirect()->route('courses.index');
     }
 }

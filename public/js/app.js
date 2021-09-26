@@ -30696,11 +30696,11 @@ __webpack_require__.r(__webpack_exports__);
     var request = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.value.request;
 
     function reject() {
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.delete("/admin/teacher/request/".concat(request.id));
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.delete("/admin/teacher/request/course/".concat(request.id));
     }
 
     function accept() {
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.post("/admin/teacher/request/".concat(request.id));
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.post("/admin/teacher/request/course/".concat(request.id));
     }
 
     return {
