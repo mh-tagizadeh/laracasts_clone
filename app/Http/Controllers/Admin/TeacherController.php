@@ -97,6 +97,12 @@ class TeacherController extends Controller
         return Inertia::render('Teachers/AnswerRequestCourse', [ 'request' => $request ]);
     }
 
+    public function reject_request_course(RequestCourse $request)
+    {
+        $request->delete();
+
+        return redirect()->route('teacher.requests');
+    }
 
     public function accept_request_course(RequestCourse $request)
     {
