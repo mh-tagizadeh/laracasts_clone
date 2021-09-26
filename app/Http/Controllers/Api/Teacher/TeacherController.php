@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\ApplyTeacher;
 use App\Models\Course;
+use App\Models\RequestCourse;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ApplyTeacherRequests;
 use App\Http\Resources\TeacherResource;
@@ -106,5 +107,22 @@ class TeacherController extends Controller
         return response()->json([
             'message' => 'deleted successfuly'
         ], 200);
+    }
+
+
+    public function request_for_create_course(Request $request)
+    {
+        $user = Auth::user();
+        $teacher = $user->teacher->id;
+
+        RequestCourse::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'offer_price' => $request->offer_price,
+            'description_for_admin' => $request->description_for_admin,
+            'teacher_id' => $teacher,
+        ]);
+
+        return response()->json('susccesfuly');
     }
 }

@@ -133,7 +133,7 @@ class CategoriesController extends Controller
         }
         if (Course::where('category_id', $category->id)->count())
         {
-            abort(403);
+            abort(403, 'this category has courses.');
         }
         $category->delete();
 

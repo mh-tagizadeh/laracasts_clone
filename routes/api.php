@@ -39,4 +39,5 @@ Route::middleware('auth:sanctum')->prefix('teachers')->group(function() {
     Route::get('profile', [TeacherController::class, 'profile']);
     Route::post('update' , [TeacherController::class, 'update']);
     Route::delete('delete', [TeacherController::class, 'delete']);
+    Route::post('request-for-create-course' , [TeacherController::class, 'request_for_create_course']);
 });
