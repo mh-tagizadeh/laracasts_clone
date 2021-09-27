@@ -17,6 +17,13 @@ class UsersController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+        if(!$user->can('users'))
+        {
+            abort(403);
+        }
+        
+
         return Inertia::render('Users/Index', [
             'users' => User::all()->map(function($user) {
                 return [
@@ -59,6 +66,13 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
+        $user = Auth::user();
+        if(!$user->can('users'))
+        {
+            abort(403);
+        }
+        
+
         return Inertia::render('Users/Show', [
             'user' => User::where('id', $user->id)->get()
             ->map(function($user){
