@@ -8,9 +8,11 @@ use App\Models\Course;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class CategoriesController extends Controller
 {
+
 
     public function get_name_by_parent_categoires(Category $category) {
         $arr = array();
@@ -31,6 +33,13 @@ class CategoriesController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+        if(!$user->can('categories'))
+        {
+            abort(403);
+        }
+
+
         return Inertia::render('Categories/Index', [
             'categories' => Category::has('category')->get(),        
         ]);
@@ -38,6 +47,13 @@ class CategoriesController extends Controller
 
     public function get_parent_categories()
     {
+        $user = Auth::user();
+        if(!$user->can('categories'))
+        {
+            abort(403);
+        }
+
+
         return Inertia::render('Categories/Index', [
             'categories' => Category::has('categories_child')->get(),        
         ]);
@@ -50,6 +66,12 @@ class CategoriesController extends Controller
      */
     public function create()
     {
+        $user = Auth::user();
+        if(!$user->can('categories'))
+        {
+            abort(403);
+        }
+
         // TODO: show categoery tree in selection parent category and show category name selected while select category 
         return Inertia::render('Categories/Create',[
             'categories' => Category::where('category_id', null)->get()
@@ -64,6 +86,12 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
+        $user = Auth::user();
+        if(!$user->can('categories'))
+        {
+            abort(403);
+        }
+         
         Category::create([
             'name' => $request->name,
             'slug' => Str::slug($request->name),
@@ -93,6 +121,13 @@ class CategoriesController extends Controller
      */
     public function edit(Category $category)
     {
+        $user = Auth::user();
+        if(!$user->can('categories'))
+        {
+            abort(403);
+        }
+
+
         // TODO: show old selected category in Listbox component front-end.
         return Inertia::render('Categories/Create', [
             'category' => $category,
@@ -109,6 +144,14 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, Category $category)
     {
+        $user = Auth::user();
+        if(!$user->can('categories'))
+        {
+            abort(403);
+        }
+    
+
+
         // TODO: add parent catgory for update.
         $category->name = $request->name;
 
@@ -127,6 +170,13 @@ class CategoriesController extends Controller
      */
     public function destroy(Category $category)
     {
+        $user = Auth::user();
+        if(!$user->can('categories'))
+        {
+            abort(403);
+        }
+
+
         if($category->categories_child->count() != 0)
         {
             abort(403);
