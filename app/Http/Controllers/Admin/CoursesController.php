@@ -13,6 +13,7 @@ use App\Http\Requests\UpdateCourseRequest;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class CoursesController extends Controller
 {

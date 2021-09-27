@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
