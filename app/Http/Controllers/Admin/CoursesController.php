@@ -23,6 +23,13 @@ class CoursesController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+        if(!$user->can('courses'))
+        {
+            abort(403);
+        }
+        
+
         return Inertia::render('Courses/Index', [
             'courses' => Course::all()->map(function($course) {
                 return [
@@ -45,6 +52,13 @@ class CoursesController extends Controller
      */
     public function create()
     {
+        $user = Auth::user();
+        if(!$user->can('courses'))
+        {
+            abort(403);
+        }
+        
+
         return Inertia::render('Courses/CreateOrEdit', [
             'teachers'=>Teacher::select('id', 'username')->get(),
             'categories'=>Category::doesntHave('categories_child')->select('id', 'name')->get(),
@@ -59,6 +73,13 @@ class CoursesController extends Controller
      */
     public function store(StoreCoursesRequest $request)
     {
+        $user = Auth::user();
+        if(!$user->can('courses'))
+        {
+            abort(403);
+        }
+        
+
 
         // Retrieve the validated input data...
         $validated = $request->validated();
@@ -109,6 +130,13 @@ class CoursesController extends Controller
      */
     public function edit(Course $course)
     {
+        $user = Auth::user();
+        if(!$user->can('courses'))
+        {
+            abort(403);
+        }
+        
+
         return Inertia::render('Courses/CreateOrEdit', [
             'course' => $course,
             'image' => $course->image ? $course->image->url : '/img/logo.svg',
@@ -126,6 +154,13 @@ class CoursesController extends Controller
      */
     public function update(UpdateCourseRequest $request, Course $course)
     {
+        $user = Auth::user();
+        if(!$user->can('courses'))
+        {
+            abort(403);
+        }
+        
+
         
         // Retrieve the validated input data...
         $validated = $request->validated();
@@ -156,6 +191,13 @@ class CoursesController extends Controller
      */
     public function destroy(Course $course)
     {
+        $user = Auth::user();
+        if(!$user->can('courses'))
+        {
+            abort(403);
+        }
+        
+
         $course->delete();
 
         return redirect()->route('courses.index');
