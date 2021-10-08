@@ -19,7 +19,7 @@ class UsersController extends Controller
     public function index()
     {
         $user = Auth::user();
-        if(!$user->can('users'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
@@ -68,7 +68,7 @@ class UsersController extends Controller
     public function show(User $user)
     {
         $user = Auth::user();
-        if(!$user->can('users'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }

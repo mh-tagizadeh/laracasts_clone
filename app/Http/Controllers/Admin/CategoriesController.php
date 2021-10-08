@@ -34,7 +34,7 @@ class CategoriesController extends Controller
     public function index()
     {
         $user = Auth::user();
-        if(!$user->can('categories'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
@@ -48,7 +48,7 @@ class CategoriesController extends Controller
     public function get_parent_categories()
     {
         $user = Auth::user();
-        if(!$user->can('categories'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
@@ -67,7 +67,7 @@ class CategoriesController extends Controller
     public function create()
     {
         $user = Auth::user();
-        if(!$user->can('categories'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
@@ -87,7 +87,7 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         $user = Auth::user();
-        if(!$user->can('categories'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
@@ -122,7 +122,7 @@ class CategoriesController extends Controller
     public function edit(Category $category)
     {
         $user = Auth::user();
-        if(!$user->can('categories'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
@@ -145,7 +145,7 @@ class CategoriesController extends Controller
     public function update(Request $request, Category $category)
     {
         $user = Auth::user();
-        if(!$user->can('categories'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
@@ -171,7 +171,7 @@ class CategoriesController extends Controller
     public function destroy(Category $category)
     {
         $user = Auth::user();
-        if(!$user->can('categories'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }

@@ -20,7 +20,7 @@ class TeacherController extends Controller
     public function request_teachers()
     {
         $user = Auth::user();
-        if(!$user->can('teachers admin'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
@@ -35,7 +35,7 @@ class TeacherController extends Controller
     public function answer_request(ApplyTeacher $request)
     {
         $user = Auth::user();
-        if(!$user->can('teachers admin'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
@@ -51,7 +51,7 @@ class TeacherController extends Controller
     public function reject_request(ApplyTeacher $request)
     {
         $user = Auth::user();
-        if(!$user->can('teachers admin'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
@@ -65,7 +65,7 @@ class TeacherController extends Controller
     public function accept_request(ApplyTeacher $request)
     {
         $user = Auth::user();
-        if(!$user->can('teachers admin'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
@@ -94,7 +94,7 @@ class TeacherController extends Controller
     public function rejected_requests()
     {
         $user = Auth::user();
-        if(!$user->can('teachers admin'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
@@ -108,7 +108,7 @@ class TeacherController extends Controller
     public function requests_course()
     {
         $user = Auth::user();
-        if(!$user->can('teachers admin'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
@@ -129,7 +129,7 @@ class TeacherController extends Controller
     public function index()
     {
         $user = Auth::user();
-        if(!$user->can('teachers admin'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
@@ -143,7 +143,7 @@ class TeacherController extends Controller
     public function answer_request_course(RequestCourse $request)
     {
         $user = Auth::user();
-        if(!$user->can('teachers admin'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
@@ -157,7 +157,7 @@ class TeacherController extends Controller
     public function reject_request_course(RequestCourse $request)
     {
         $user = Auth::user();
-        if(!$user->can('teachers admin'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
@@ -171,7 +171,7 @@ class TeacherController extends Controller
     public function accept_request_course(RequestCourse $request)
     {
         $user = Auth::user();
-        if(!$user->can('teachers admin'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
@@ -199,7 +199,7 @@ class TeacherController extends Controller
     public function rejected_courses()
     {
         $user = Auth::user();
-        if(!$user->can('teachers admin'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }

@@ -31,7 +31,7 @@ Route::get('/', function () {
 
 
 
-Route::prefix('admin')->group(function (){
+Route::middleware(['auth'])->prefix('admin')->group(function (){
     Route::resource('categories', CategoriesController::class);
     Route::get('category/parents', [CategoriesController::class, 'get_parent_categories'])->name('categories.parents');
     Route::resource('users', UsersController::class);

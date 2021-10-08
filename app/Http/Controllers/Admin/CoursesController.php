@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CoursesController extends Controller
 {
+    public $courses;
     /**
      * Display a listing of the resource.
      *
@@ -25,11 +26,29 @@ class CoursesController extends Controller
     public function index()
     {
         $user = Auth::user();
-        if(!$user->can('courses'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
+
+
+        // Course::chunk(200, function ($courses){
+        //     foreach ($courses as $course) {
+        //         $image =  Image::select('url')->where('imageable_type', 'App\Models\Course')->where('imageable_id', $course->id)->first();
+        //         $course['image'] = $image ? $image->url : '/img/logo.svg';
+        //         $teacher = Teacher::select('username')->where('id', $course->teacher_id)->first();
+        //         $course['teacher'] = $teacher->username;
+        //         $category = Category::select('name')->where('id', $course->category_id)->first();
+        //         $course['category'] = $category->name;
+        //         $this->courses[] = $course;
+        //     }
+        // });
+
+
         
+        // return Inertia::render('Courses/Index', [
+        //     'courses' => $this->courses,
+        // ]);
 
         return Inertia::render('Courses/Index', [
             'courses' => Course::all()->map(function($course) {
@@ -54,7 +73,7 @@ class CoursesController extends Controller
     public function create()
     {
         $user = Auth::user();
-        if(!$user->can('courses'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
@@ -75,7 +94,7 @@ class CoursesController extends Controller
     public function store(StoreCoursesRequest $request)
     {
         $user = Auth::user();
-        if(!$user->can('courses'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
@@ -132,7 +151,7 @@ class CoursesController extends Controller
     public function edit(Course $course)
     {
         $user = Auth::user();
-        if(!$user->can('courses'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
@@ -156,7 +175,7 @@ class CoursesController extends Controller
     public function update(UpdateCourseRequest $request, Course $course)
     {
         $user = Auth::user();
-        if(!$user->can('courses'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
@@ -193,7 +212,7 @@ class CoursesController extends Controller
     public function destroy(Course $course)
     {
         $user = Auth::user();
-        if(!$user->can('courses'))
+        if(!$user->can('user_management'))
         {
             abort(403);
         }
