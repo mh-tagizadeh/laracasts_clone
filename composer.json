@@ -19,12 +19,15 @@
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
+        "derekmd/laravel-dusk-firefox": "^1.6",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
+        "laravel/dusk": "^6.18",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3.3"
+        "phpunit/phpunit": "^9.3.3",
+        "supliu/laravel-query-monitor": "1.0.x-dev"
     },
     "autoload": {
         "psr-4": {
