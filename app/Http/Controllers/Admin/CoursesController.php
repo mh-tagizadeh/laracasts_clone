@@ -139,7 +139,10 @@ class CoursesController extends Controller
      */
     public function show(Course $course)
     {
-        //
+        return Inertia::render('Courses/Show', [
+            'course' => $course,
+            'lessons' => $course->lessons,
+        ]);
     }
 
     /**
