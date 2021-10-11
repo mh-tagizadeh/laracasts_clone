@@ -54,6 +54,9 @@
                   {{ course.teacher}}
                 </td>
                 <td class="px-3 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <a :href="route('courses.show', course.id)" class="text-green-600 hover:text-green-900">Show</a>
+                </td>
+                <td class="px-3 py-4 whitespace-nowrap text-right text-sm font-medium">
                   <a :href="route('courses.edit', course.id)" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                 </td>
                 <td class="px-3 py-4 whitespace-nowrap text-right text-sm font-medium">
