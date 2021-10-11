@@ -212,4 +212,18 @@ class TeacherController extends Controller
             'requests' => $requests
         ]);
     }
+    
+    public function show(Teacher $teacher)
+    {
+        $user = Auth::user();
+        if(!$user->can('user_management'))
+        {
+            abort(403);
+        }
+
+        return Inertia::render('Teachers/Show', [
+            'teacher' => $teacher,
+            'email' => $teacher->user->email,
+        ]);
+    }
 }
