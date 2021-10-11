@@ -10,6 +10,10 @@ class Lesson extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'description', 'course_id', 'lesson_number',
+        'title', 'slug', 'description', 'course_id', 'lesson_number',
     ];
+
+    public function course() {
+        return $this->belongsTo(Course::class);
+    }
 }
