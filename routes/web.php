@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\CoursesController;
 use App\Http\Controllers\Admin\TeacherController;
+use App\Http\Controllers\Admin\LessonsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function (){
     Route::resource('users', UsersController::class);
     Route::resource('courses', CoursesController::class);
     Route::resource('teachers', TeacherController::class);
+    Route::resource('lessons', LessonsController::class);
 
     Route::prefix('teacher')->group(function () {
         Route::get('requests', [TeacherController::class, 'request_teachers'])->name('teacher.requests');

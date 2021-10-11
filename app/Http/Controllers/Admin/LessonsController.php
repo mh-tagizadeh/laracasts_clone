@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class LessonsController extends Controller
 {
@@ -48,7 +49,9 @@ class LessonsController extends Controller
     public function show(Lesson $lesson)
     {
         return Inertia::render('Lessons/Show', [
-            'lesson' => $lesson
+            'lesson' => $lesson,
+            'course'=>$lesson->course->title,
+            'teacher' => $lesson->course->teacher->username,
         ]);
     }
 

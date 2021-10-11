@@ -27,7 +27,7 @@
                 </div >
                 <div class="">
                 <td class="px-3 py-4 whitespace-nowrap text-right text-sm font-medium">
-                  <a href="" class="text-green-600 hover:text-green-900">Show</a>
+                  <a :href="route('lessons.show', lesson.id)" class="text-green-600 hover:text-green-900">Show</a>
                 </td>
                 <td class="px-3 py-4 whitespace-nowrap text-right text-sm font-medium">
                   <a href="" class="text-indigo-600 hover:text-indigo-900">Edit</a>
