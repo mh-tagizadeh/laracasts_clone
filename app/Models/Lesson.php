@@ -13,7 +13,16 @@ class Lesson extends Model
         'title', 'slug', 'description', 'course_id', 'lesson_number',
     ];
 
-    public function course() {
+    public function course()
+    {
         return $this->belongsTo(Course::class);
+    }
+
+    /**
+     * Get the lesson's video.
+     */
+    public function video()
+    {
+        return $this->morphOne(Video::class, 'videoable');
     }
 }
