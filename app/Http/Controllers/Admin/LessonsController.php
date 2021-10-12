@@ -6,9 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Storage;
 
 class LessonsController extends Controller
 {
+
+    public function video($video)
+    {
+        return Storage::download('private/'.$video);
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -48,10 +56,12 @@ class LessonsController extends Controller
      */
     public function show(Lesson $lesson)
     {
+        $str = explode('/', $lesson->video->path);
         return Inertia::render('Lessons/Show', [
             'lesson' => $lesson,
             'course'=>$lesson->course->title,
             'teacher' => $lesson->course->teacher->username,
+            'video' => $str[1],
         ]);
     }
 

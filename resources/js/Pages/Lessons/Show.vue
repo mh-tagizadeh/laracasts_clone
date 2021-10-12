@@ -6,6 +6,18 @@
             </h2>
         </template>
 
+        <div class="py-10">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-indigo-600 overflow-hidden shadow-xl sm:rounded-lg">
+                    <video class="w-full" controls>
+                        <source :src="route('video', video)" >
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+
+
 
         <div class="py-10">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -34,6 +46,7 @@
             lesson: Object,
             teacher: String,
             course: String,
+            video: String,
         },
     }
 </script>

@@ -32670,7 +32670,8 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     lesson: Object,
     teacher: String,
-    course: String
+    course: String,
+    video: String
   }
 });
 
@@ -39996,6 +39997,22 @@ var _hoisted_3 = {
 var _hoisted_4 = {
   "class": "bg-indigo-600 overflow-hidden shadow-xl sm:rounded-lg"
 };
+var _hoisted_5 = {
+  "class": "w-full",
+  controls: ""
+};
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Your browser does not support the video tag. ");
+
+var _hoisted_7 = {
+  "class": "py-10"
+};
+var _hoisted_8 = {
+  "class": "max-w-7xl mx-auto sm:px-6 lg:px-8"
+};
+var _hoisted_9 = {
+  "class": "bg-indigo-600 overflow-hidden shadow-xl sm:rounded-lg"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_show = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("show", true);
 
@@ -40010,7 +40027,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       )];
     }),
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_show, {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("video", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("source", {
+        src: _ctx.route('video', $props.video)
+      }, null, 8
+      /* PROPS */
+      , ["src"]), _hoisted_6])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_show, {
         lesson: $props.lesson,
         teacher: $props.teacher,
         course: $props.course

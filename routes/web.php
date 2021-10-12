@@ -39,6 +39,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function (){
     Route::resource('courses', CoursesController::class);
     Route::resource('teachers', TeacherController::class);
     Route::resource('lessons', LessonsController::class);
+    Route::get('lesson/video/{video}', [LessonsController::class, 'video'])->name('video');
 
     Route::prefix('teacher')->group(function () {
         Route::get('requests', [TeacherController::class, 'request_teachers'])->name('teacher.requests');
