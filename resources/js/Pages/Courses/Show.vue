@@ -9,6 +9,15 @@
             </div>
         </template>
 
+        <div class="py-10">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <show-course :course='course' :teacher='teacher'></show-course>
+                </div>
+            </div>
+        </div>
+
+
 
         <div class="py-10">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -25,18 +34,22 @@
     import AppLayout from '@/Layouts/AppLayout.vue'
     import { Head, Link } from '@inertiajs/inertia-vue3'
     import LessonsTable from '@/Components/Lessons/Table.vue'
+    import ShowCourse from '@/Components/Courses/Show.vue'
+
 
     export default {
         components: {
             AppLayout,
             Head,
             Link,
-            LessonsTable
+            LessonsTable,
+            ShowCourse
         },
       
         props: {
             course: Object,
             lessons: Object,
+            teacher: String,
         },
     }
 </script>

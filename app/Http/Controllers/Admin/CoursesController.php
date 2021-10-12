@@ -142,6 +142,7 @@ class CoursesController extends Controller
         return Inertia::render('Courses/Show', [
             'course' => $course,
             'lessons' => $course->lessons,
+            'teacher' => $course->teacher->username
         ]);
     }
 
