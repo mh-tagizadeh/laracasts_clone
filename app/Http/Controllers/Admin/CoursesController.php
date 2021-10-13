@@ -47,21 +47,6 @@ class CoursesController extends Controller
         return Inertia::render('Courses/Index', [
             'courses' => $courses,
         ]);
-
-
-        return Inertia::render('Courses/Index', [
-            'courses' => Course::all()->map(function($course) {
-                return [
-                    'id' => $course->id,
-                    'sku' => $course->sku,
-                    'title' => $course->title,
-                    'category' => $course->category->name,
-                    'teacher' => $course->teacher->username,
-                    'status' => $course->status,
-                    'image' => $course->image ? $course->image->url : '/img/logo.svg',
-                ];
-            })
-        ]);
     }
 
     /**

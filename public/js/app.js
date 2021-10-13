@@ -33263,6 +33263,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout.vue */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _Components_Teachers_Sections__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/Teachers/Sections */ "./resources/js/Components/Teachers/Sections.vue");
 /* harmony import */ var _Components_Teachers_Table__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/Teachers/Table */ "./resources/js/Components/Teachers/Table.vue");
+/* harmony import */ var _Components_Pagination__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/Pagination */ "./resources/js/Components/Pagination.vue");
+
 
 
 
@@ -33270,7 +33272,8 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__.default,
     TeachersSections: _Components_Teachers_Sections__WEBPACK_IMPORTED_MODULE_1__.default,
-    TeachersTable: _Components_Teachers_Table__WEBPACK_IMPORTED_MODULE_2__.default
+    TeachersTable: _Components_Teachers_Table__WEBPACK_IMPORTED_MODULE_2__.default,
+    Pagination: _Components_Pagination__WEBPACK_IMPORTED_MODULE_3__.default
   },
   props: {
     teachers: Object
@@ -41367,10 +41370,18 @@ var _hoisted_2 = {
 var _hoisted_3 = {
   "class": "col-span-2 my-10 pr-3"
 };
+var _hoisted_4 = {
+  "class": "w-full grid grid-cols-8"
+};
+var _hoisted_5 = {
+  "class": "col-start-2 col-span-6"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_teachers_sections = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("teachers-sections");
 
   var _component_teachers_table = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("teachers-table");
+
+  var _component_pagination = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("pagination");
 
   var _component_app_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-layout");
 
@@ -41385,7 +41396,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         teachers: $props.teachers.data
       }, null, 8
       /* PROPS */
-      , ["teachers"])])])];
+      , ["teachers"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
+        "class": "mt-6",
+        links: $props.teachers.links
+      }, null, 8
+      /* PROPS */
+      , ["links"])])])])])];
     }),
     _: 1
     /* STABLE */

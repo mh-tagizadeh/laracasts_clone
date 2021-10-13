@@ -134,6 +134,14 @@ class TeacherController extends Controller
             abort(403);
         }
         
+        $teachers = Teacher::paginate(10)->through(function ($teacher) {
+            return new TeacherResource($teacher);
+        });
+
+
+        return Inertia::render('Teachers/Index', [
+            'teachers' => $teachers,
+        ]);
 
         return Inertia::render('Teachers/Index', [
             'teachers' => new TeacherCollection(Teacher::all())
