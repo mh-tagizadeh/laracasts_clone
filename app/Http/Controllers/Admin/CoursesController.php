@@ -31,24 +31,23 @@ class CoursesController extends Controller
             abort(403);
         }
 
+        $courses = Course::paginate(20)->through(function ($course) {
+            return [
+                'id' => $course->id,
+                'sku' => $course->sku,
+                'title' => $course->title,
+                'category' => $course->category->name,
+                'teacher' => $course->teacher->username,
+                'status' => $course->status,
+                'image' => $course->image ? $course->image->url : '/img/logo.svg',
+            ];
+        });
 
-        // Course::chunk(200, function ($courses){
-        //     foreach ($courses as $course) {
-        //         $image =  Image::select('url')->where('imageable_type', 'App\Models\Course')->where('imageable_id', $course->id)->first();
-        //         $course['image'] = $image ? $image->url : '/img/logo.svg';
-        //         $teacher = Teacher::select('username')->where('id', $course->teacher_id)->first();
-        //         $course['teacher'] = $teacher->username;
-        //         $category = Category::select('name')->where('id', $course->category_id)->first();
-        //         $course['category'] = $category->name;
-        //         $this->courses[] = $course;
-        //     }
-        // });
 
+        return Inertia::render('Courses/Index', [
+            'courses' => $courses,
+        ]);
 
-        
-        // return Inertia::render('Courses/Index', [
-        //     'courses' => $this->courses,
-        // ]);
 
         return Inertia::render('Courses/Index', [
             'courses' => Course::all()->map(function($course) {
