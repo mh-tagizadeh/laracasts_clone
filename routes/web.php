@@ -6,7 +6,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\CoursesController;
-use App\Http\Controllers\Admin\TeacherController;
+use App\Http\Controllers\Admin\RequestsController;
 use App\Http\Controllers\Admin\LessonsController;
 
 /*
@@ -33,31 +33,51 @@ Route::get('/', function () {
 
 
 Route::middleware(['auth'])->prefix('admin')->group(function (){
+
     Route::resource('categories', CategoriesController::class);
-    Route::get('category/parents', [CategoriesController::class, 'get_parent_categories'])->name('categories.parents');
+
     Route::resource('users', UsersController::class);
+
     Route::resource('courses', CoursesController::class);
-    Route::resource('teachers', TeacherController::class);
+
+    Route::resource('teachers', RequestsController::class);
+
     Route::resource('lessons', LessonsController::class);
+
+    Route::get('category/parents', [CategoriesController::class, 'get_parent_categories'])->name('categories.parents');
+
     Route::get('lesson/video/{video}', [LessonsController::class, 'video'])->name('video');
 
+
     Route::prefix('teacher')->group(function () {
-        Route::get('requests', [TeacherController::class, 'request_teachers'])->name('teacher.requests');
-        Route::get('requests/rejected', [TeacherController::class, 'rejected_requests'])->name('teacher.requests.rejected');
-        Route::get('request/{request}', [TeacherController::class, 'answer_request'])->name('teacher.request.answer');
-        Route::delete('request/{request}', [TeacherController::class, 'reject_request'])->name('teacher.request.reject');
-        Route::post('request/{request}', [TeacherController::class, 'accept_request'])->name('teacher.request.accept');
-        Route::get('requests/course', [TeacherController::class, 'requests_course'])->name('teacher.course.requests');
-        Route::get('request/course/{request}', [TeacherController::class, 'answer_request_course'])->name('teacher.request.course.answer');
-        Route::post('request/course/{request}', [TeacherController::class, 'accept_request_course'])->name('teacher.request.course.accept');
-        Route::delete('request/course/{request}', [TeacherController::class, 'reject_request_course'])->name('teacher.request.course.reject');
-        Route::get('requests/courses/rejected', [TeacherController::class, 'rejected_courses'])->name('teacher.course.rejected');
+
+        Route::get('requests', [RequestsController::class, 'request_teachers'])->name('teacher.requests');
+
+        Route::get('requests/rejected', [RequestsController::class, 'rejected_requests'])->name('teacher.requests.rejected');
+
+        Route::get('request/{request}', [RequestsController::class, 'answer_request'])->name('teacher.request.answer');
+
+        Route::delete('request/{request}', [RequestsController::class, 'reject_request'])->name('teacher.request.reject');
+
+        Route::post('request/{request}', [RequestsController::class, 'accept_request'])->name('teacher.request.accept');
+
+        Route::get('requests/course', [RequestsController::class, 'requests_course'])->name('teacher.course.requests');
+
+        Route::get('request/course/{request}', [RequestsController::class, 'answer_request_course'])->name('teacher.request.course.answer');
+        
+        Route::post('request/course/{request}', [RequestsController::class, 'accept_request_course'])->name('teacher.request.course.accept');
+
+        Route::delete('request/course/{request}', [RequestsController::class, 'reject_request_course'])->name('teacher.request.course.reject');
+
+        Route::get('requests/courses/rejected', [RequestsController::class, 'rejected_courses'])->name('teacher.course.rejected');
+
     });
 
 
     Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+
 });
 
 
