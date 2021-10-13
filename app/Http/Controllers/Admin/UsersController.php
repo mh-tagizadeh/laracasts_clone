@@ -23,18 +23,20 @@ class UsersController extends Controller
         {
             abort(403);
         }
-        
+
+        $users = User::paginate(20)->through(function ($user) {
+            return [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+                'profile_photo_url' => $user->profile_photo_url,
+                'role' => $user->roles->pluck('name'),
+            ];
+        });
+
 
         return Inertia::render('Users/Index', [
-            'users' => User::all()->map(function($user) {
-                return [
-                    'id' => $user->id,
-                    'name' => $user->name,
-                    'email' => $user->email,
-                    'profile_photo_url' => $user->profile_photo_url,
-                    'role' => $user->roles->pluck('name'),
-                ];
-            })
+            'users' => $users,
         ]);
     }
 
