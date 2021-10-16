@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             PermissionSeeder::class,
             UserSeeder::class,
             CourseSeeder::class,
+            TeacherSeeder::class,
             LessonsSeeder::class,
             VideoSeeder::class,
         ]);

@@ -15,10 +15,11 @@ class TeacherSeeder extends Seeder
      */
     public function run()
     {
-        // $user = User::factory()->state([
-        //     'role_id' => 3,
-        // ])->create();
-
-        // $teacher = Teacher::factory()->state(['username' => $user->name])->for($user)->create();
+        Teacher::chunk(200, function($teachers){
+            foreach($teachers as $teacher)
+            {
+                $teacher->user->assignRole('teacher');
+            }
+        });
     }
 }
