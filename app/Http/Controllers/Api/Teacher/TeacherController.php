@@ -20,6 +20,10 @@ class TeacherController extends Controller
     public function profile()
     {
         $user = Auth::user();
+        if (!$user->can('teacher_dashboard'))
+        {
+            abort(403);
+        }
 
         return response()->json([
             'teacher' => new TeacherResource($user->teacher),
