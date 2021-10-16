@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use Spatie\Permission\Models\Role;
 use Illuminate\Database\Seeder;
 use App\Models\User;
-use Spatie\Permission\Models\Permission;
 
 class RoleSeeder extends Seeder
 {
@@ -28,14 +27,5 @@ class RoleSeeder extends Seeder
             'name' => 'teacher',
         ]);
 
-        $user = User::where('email', 'admin@admin.com')->first();
-
-        $user->assignRole('admin');
-
-        $role = $user->roles->first();
-
-        $permission = Permission::where('name', 'user_management')->first();
-
-        $role->givePermissionTo($permission);
     }
 }

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use Illuminate\Support\Str;
+use Spatie\Permission\Models\Permission;
 
 class UserSeeder extends Seeder
 {
@@ -25,6 +26,17 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ]);
         }
+
+        $user = User::where('email', 'admin@admin.com')->first();
+
+        $user->assignRole('admin');
+
+        $role = $user->roles->first();
+
+        $permission = Permission::where('name', 'user_management')->first();
+
+        $role->givePermissionTo($permission);
+
         User::factory()->count(500)->create();
         
         User::chunk(200, function($users){
