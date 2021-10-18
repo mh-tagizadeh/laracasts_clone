@@ -65,4 +65,30 @@ class TeachersControllerTest extends TestCase
         //return data teacher
         $response->dump();
     }
+    
+    public function test_can_be_delete_teacher()
+   {
+        $this->withoutExceptionHandling();
+
+        // create user and assign role teacher for him 
+        $user = User::factory()->create();
+
+        $teacher = Teacher::factory()->state(['username' => $user->name])->for($user)->create();
+
+        $user->assignRole('teacher');
+
+        // authentication teacher  
+        $this->actingAs($user);
+
+
+        $response = $this->json('DELETE', '/api/teachers/delete');
+
+        $teacher_deleted = Teacher::where('id', $teacher->id)->first();
+
+        $response->assertStatus(200);
+
+        $this->assertEquals($teacher_deleted, null);
+
+        $response->dump();
+    }
 }
