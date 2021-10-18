@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Http\Resources\TeacherResource;
 use App\Http\Resources\TeacherCollection;
+use Illuminate\Support\Facades\Auth;
 
 class TeachersController extends Controller
 {

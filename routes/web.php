@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\CoursesController;
 use App\Http\Controllers\Admin\RequestsController;
 use App\Http\Controllers\Admin\LessonsController;
+use App\Http\Controllers\Admin\TeachersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +41,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function (){
 
     Route::resource('courses', CoursesController::class);
 
-    Route::resource('teachers', RequestsController::class);
+    Route::resource('teachers', TeachersController::class);
 
     Route::resource('lessons', LessonsController::class);
 
