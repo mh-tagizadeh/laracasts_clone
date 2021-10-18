@@ -38,7 +38,7 @@ class RequestsController extends Controller
             'description' => $request->description,
             'address' => $request->address,
             'phone_number' => $request->phone_number,
-            'documents' => $url,
+            'documents' => $documents,
         ]);
 
         return response()->json([

@@ -10,6 +10,7 @@ use App\Models\ApplyTeacher;
 use App\Models\RequestCourse;
 use App\Models\Course;
 use App\Models\Teacher;
+use App\Models\User;
 use App\Http\Resources\TeacherResource;
 use App\Http\Resources\TeacherCollection;
 use Illuminate\Support\Facades\Auth;
