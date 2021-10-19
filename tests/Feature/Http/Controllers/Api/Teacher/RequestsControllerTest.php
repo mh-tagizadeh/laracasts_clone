@@ -65,8 +65,7 @@ class RequestsControllerTest extends TestCase
 
         $file = UploadedFile::fake()->create('documents.zip', 1000);
 
-        $price = 
-
+        
         // send http request for create request 
         $response = $this->json('POST', '/api/teachers/request-for-create-course', [
             'title' => $this->faker->city(),

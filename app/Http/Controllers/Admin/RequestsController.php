@@ -150,7 +150,7 @@ class RequestsController extends Controller
         }
         
 
-        $request->delete();
+        $request->forceDelete();
 
         return redirect()->route('teacher.requests');
     }
