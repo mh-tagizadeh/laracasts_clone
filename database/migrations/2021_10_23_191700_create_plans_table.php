@@ -20,7 +20,7 @@ class CreatePlansTable extends Migration
             $table->text('description');
             $table->integer('price');
             $table->integer('sale_price');
-            $table->integer('subscription_time');
+            $table->integer('subscription_duration_in_months');
             $table->timestamps();
         });
     }
