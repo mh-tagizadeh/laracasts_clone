@@ -10,6 +10,6 @@ class Plan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'slug', 'description', 'price', 'sale_price', 'subscription_time'
+        'title', 'slug', 'description', 'price', 'sale_price', 'subscription_duration_in_months'
     ];
 }
