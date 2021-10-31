@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\Teacher\TeacherController;
 use App\Http\Controllers\Api\Teacher\RequestsController;
 use App\Http\Controllers\Api\User\UserController;
+use App\Http\Controllers\Api\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,14 @@ use App\Http\Controllers\Api\User\UserController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::prefix('home')->group(function() {
+
+    Route::get('/get-count-lessons', [HomeController::class, 'get_count_lessons']);
+    Route::get('/parent-categories', [HomeController::class, 'get_parent_categories']);
+
+});
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
