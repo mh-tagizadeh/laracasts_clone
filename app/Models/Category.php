@@ -46,12 +46,16 @@ class Category extends Model
     {
         $count = 0; 
 
-        foreach ($this->categories_child as $cat)
+        $categories = $this->categories_child; 
+
+        foreach ($categories as $category)
         {
-            foreach($cat->courses as $course)
-            {
-                $count += $course->lessons->count();
-            }
+            $courses = $category->courses;
+        }
+
+        foreach ($courses as $course)
+        {
+            $count += $course->lessons->count();
         }
 
         return $count;

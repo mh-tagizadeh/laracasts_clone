@@ -24,7 +24,7 @@ class HomeController extends Controller
 
     public function get_parent_categories()
     {
-        $categories = Category::has('categories_child')->get();        
+        $categories = Category::has('categories_child')->select('id', 'name')->get();        
 
 
         return response()->json([
