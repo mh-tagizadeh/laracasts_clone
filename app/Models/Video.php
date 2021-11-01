@@ -5,16 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Video extends Model
+class Video extends BaseModel
 {
     use HasFactory;
 
-
-    /**
-     * Get the parent videoable model (course or lesson).
-     */
-    public function videoable()
+    public function __construct()
     {
-        return $this->morphTo();
+        parent::__construct($this);
     }
+
+    
 }
