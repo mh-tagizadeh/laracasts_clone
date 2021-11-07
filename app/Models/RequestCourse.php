@@ -5,16 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Traits\ModelTrait;
 
-class RequestCourse extends BaseModel
+class RequestCourse extends Model
 {
-    use HasFactory, SoftDeletes;
-
-
-    public function __construct()
-    {
-        parent::__construct($this);
-    }
+    use HasFactory, SoftDeletes, ModelTrait;
 
 
     protected $fillable = [

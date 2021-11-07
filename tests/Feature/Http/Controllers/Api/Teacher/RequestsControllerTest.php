@@ -41,6 +41,7 @@ class RequestsControllerTest extends TestCase
             'documents' => $file,
         ]);
 
+        $response->assertStatus(422);
         $response->assertStatus(200);
         
         $response->dump();

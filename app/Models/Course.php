@@ -4,15 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\ModelTrait;
 
-class Course extends BaseModel
+class Course extends Model 
 {
-    use HasFactory;
+    use HasFactory, ModelTrait;
     
-    public function __construct()
-    {
-        parent::__construct($this);
-    }
 
     protected $fillable = [
         'sku', 'title', 'slug', 'description', 

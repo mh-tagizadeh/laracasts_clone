@@ -4,16 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\ModelTrait;
 
-class Image extends BaseModel
+class Image extends Model
 {
-    use HasFactory;
-
-
-    public function __construct()
-    {
-        parent::__construct($this);
-    }
+    use HasFactory, ModelTrait;
 
 
     protected $fillable = [

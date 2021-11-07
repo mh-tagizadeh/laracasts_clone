@@ -104,7 +104,7 @@ class RequestsController extends Controller
         }
         
 
-        $requests = ApplyTeacher::onlyTrashed()->select('id','username', 'description')->get();
+        $requests = ApplyTeacher::all();
         return Inertia::render('Teachers/RejectedRequests', ['requests' => $requests]);
     }
 

@@ -4,16 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\ModelTrait;
 
-class Subscription extends BaseModel
+class Subscription extends Model 
 {
-    use HasFactory;
-
-    public function __construct()
-    {
-        parent::__construct($this);
-    }
-
+    use HasFactory, ModelTrait;
 
     protected $fillable = [
         'id' , 'user_id', 'team_id', 'plan_id', 'transactoin_id', 'start_at', 'ends_at'
