@@ -10,6 +10,8 @@ class Category extends Model
 {
     use HasFactory, ModelTrait;
 
+    protected $courses;
+
 
     protected $fillable = [
         'name', 'slug', 'description', 'category_id'
@@ -20,33 +22,26 @@ class Category extends Model
         return $this->hasMany(Category::class);
     }
 
+
+    public function get_parent_category_courses()
+    {
+        $categories = $this->categories_child;
+
+        return Course::whereBetween('category_id', [$categories->first()->id, $categories->last()->id])->get();
+    }
+
+
     public function courses_count()
     {
-        $count = 0; 
-
-        foreach ($this->categories_child as $cat)
-        {
-            $count += $cat->courses->count();
-        }
-
-        return $count;
+        return $this->get_parent_category_courses()->count();
     }
+
 
     public function lessons_count()
     {
-        $count = 0; 
+        $courses = $this->get_parent_category_courses();
 
-        $categories = $this->categories_child; 
-
-        foreach ($categories as $category)
-        {
-            $courses = $category->courses;
-        }
-
-        foreach ($courses as $course)
-        {
-            $count += $course->lessons->count();
-        }
+        $count = Lesson::whereBetween('course_id', [$courses->first()->id, $courses->last()->id])->count();
 
         return $count;
     }
