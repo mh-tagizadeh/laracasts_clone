@@ -20,7 +20,7 @@ class CreateSubscriptionsTable extends Migration
             $table->integer('team_id')->nullable();
             $table->integer('transaction_id');
             $table->timestamp('start_at');
-            $table->timestamp('ends_at');
+            $table->timestamp('end_at')->default(now());
             $table->timestamps();
         });
     }
