@@ -24,7 +24,7 @@ class HomeController extends Controller
 
     public function get_parent_categories()
     {
-        $categories = Category::has('categories_child')->select('id', 'name')->get();        
+        $categories = Category::has('categories_child')->with('categories_child')->get();        
 
 
         return response()->json([
@@ -32,8 +32,8 @@ class HomeController extends Controller
                 return [
                     'id' => $category->id,
                     'title' => $category->name,
-                    'lessons_count' => $category->lessons_count(),
                     'courses_count' => $category->courses_count(),
+                    'lessons_count' => $category->lessons_count(),
                 ];
             }),
         ], 200);
