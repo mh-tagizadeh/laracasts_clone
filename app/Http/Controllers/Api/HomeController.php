@@ -39,4 +39,16 @@ class HomeController extends Controller
         ], 200);
     }
 
+
+    public function get_popular_courses()
+    {
+        $arr = [];
+        for($x=0;$x<16;$x++)
+        {
+            $arr[$x] = random_int(0,Course::count());
+        }
+
+        return Course::whereIn('id', $arr)->get();
+    }
+
 }
