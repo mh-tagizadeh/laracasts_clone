@@ -32,4 +32,15 @@ class HomeControllerTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function test_get_popular_courses()
+    {
+        $this->withoutExceptionHandling();
+
+        $response = $this->get('/api/home/popular-courses');
+
+        $response->dump();
+
+        $response->assertStatus(200);
+    }
 }

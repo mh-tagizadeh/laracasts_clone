@@ -23,6 +23,7 @@ Route::prefix('home')->group(function() {
 
     Route::get('/get-count-lessons', [HomeController::class, 'get_count_lessons']);
     Route::get('/parent-categories', [HomeController::class, 'get_parent_categories']);
+    Route::get('/popular-courses', [HomeController::class, 'get_popular_courses']);
 
 });
 
