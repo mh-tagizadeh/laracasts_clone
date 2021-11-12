@@ -19,8 +19,8 @@ class CreateApplyTeachersTable extends Migration
             $table->string('last_name');
             $table->string('username');
             $table->text('description');
-            $table->integer('user_id');
-            $table->bigInteger('phone_number');
+            $table->integer('user_id')->unique();
+            $table->bigInteger('phone_number')->unique();
             $table->text('address');
             $table->string('documents');
             $table->timestamps();

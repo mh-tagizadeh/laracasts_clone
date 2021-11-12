@@ -20,7 +20,7 @@ class CreateLessonsTable extends Migration
             $table->text('description');
             $table->integer('lesson_number');
             $table->integer('course_id');
-            // todo: create free boolean tyep column
+            $table->boolean('free')->default(0);
             $table->timestamps();
         });
     }
