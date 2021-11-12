@@ -43,4 +43,15 @@ class HomeControllerTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function  test_get_all_categories()
+    {
+        $this->withoutExceptionHandling();
+
+        $response = $this->get('/api/home/all-categories');
+
+        $response->dump();
+
+        $response->assertStatus(200);
+    }
 }
