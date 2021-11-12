@@ -22,7 +22,7 @@ class VideoFactory extends Factory
     public function definition()
     {
         return [
-            'path' => 'private/example.mp4'
+            'url' => 'private/example.mp4'
         ];
     }
 }
