@@ -172,8 +172,6 @@ class RequestsController extends Controller
             'description' => $request->description,
             'teacher_id' => $request->teacher->id,
             'state' => false,
-            'price' => $request->offer_price,
-            'sale_price' => $request->offer_price,
             'published_at' => now(),
             'category_id' => $request->category_id,
         ]);

@@ -27,8 +27,6 @@ class CourseFactory extends Factory
             'sku' => $this->faker->uuid(), 
             'title' => $this->faker->city(),
             'slug' => $this->faker->slug(),
-            'price' => $price,
-            'sale_price' => $sale_price,
             'description' => $this->faker->text(),
             'state' => 0, 
             'published_at' => now(),

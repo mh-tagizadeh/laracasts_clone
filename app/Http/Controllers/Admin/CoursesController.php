@@ -95,8 +95,6 @@ class CoursesController extends Controller
             'description' => $request->description,
             'teacher_id' => $request->teacher,
             'category_id' => $request->category,
-            'price' => $request->price,
-            'sale_price' => $request->price,
             'punished_at' => $request->punished_at,
         ]);
 
@@ -178,8 +176,6 @@ class CoursesController extends Controller
         $course->description = $request->description;
         $course->teacher_id = $request->teacher;
         $course->category_id = $request->category;
-        $course->price = $request->price;
-        $course->sale_price = $request->price;
 
         if($request->punished_at)
         {
