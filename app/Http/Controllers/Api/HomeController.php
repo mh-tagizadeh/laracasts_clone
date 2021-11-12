@@ -48,7 +48,29 @@ class HomeController extends Controller
             $arr[$x] = random_int(0,Course::count());
         }
 
-        return Course::whereIn('id', $arr)->get();
+        $courses = Course::whereIn('id', $arr)->select('id', 'title', 'description')->with('lessons')->get();
+
+        return $courses->map(function($course) {
+            return [
+                'id' => $course->id,
+                'title' => $course->title,
+                'description' => $course->description,
+                'lessons_count' => $course->lessons->count(),
+            ];
+        });
+    }
+
+
+    public function get_all_categories()
+    {
+        return Category::doesntHave('categories_child')->select('id', 'name')->with('courses')->get()->map(function($category) {
+            return [
+                'id' => $category->id,
+                'name' => $category->name,
+                'courses_count' => $category->courses->count(),
+                'video_count' => $category->child_category_lessons_count(),
+            ];
+        });
     }
 
 }

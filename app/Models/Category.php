@@ -47,4 +47,13 @@ class Category extends Model
     }
 
 
+    public function child_category_lessons_count()
+    {
+        $courses = $this->courses()->get();
+
+        $count = Lesson::whereBetween('course_id', [$courses->first()->id, $courses->last()->id])->count();
+
+        return $count;
+    }
+
 }
