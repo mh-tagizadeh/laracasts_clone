@@ -29,7 +29,7 @@ class CreateUserRequest extends FormRequest
             'name' => 'required|unique:users|max:55',          
             'email' => 'required|unique:users|email',          
             'password' => 'required|confirmed',
-            'image' => 'required|mimes:jpeg,jpg,png',          
+            'image' => 'mimes:jpeg,jpg,png',          
         ];
     }
 
@@ -46,7 +46,7 @@ class CreateUserRequest extends FormRequest
             'name.required' => 'نام خالی است.',
             'name.unique' => 'این نام قبلا استفاده شده است.',
             'name.max' => 'شما مجاز هستید حداکثر از ۲۵۰ کاراکتر استفاده کنید.',
-            'image.required' => 'عکس را وارد نکردید',
+            // 'image.required' => 'عکس را وارد نکردید',
             'image.mimes' => 'فایل انتخاب شده عکس نیس.',
             'image.max' => 'فایل انتخاب شده بیش از حد مجاز است.',
             'email.required' => 'ایمیل خالی است.',

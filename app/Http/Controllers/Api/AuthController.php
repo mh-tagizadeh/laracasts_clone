@@ -24,14 +24,18 @@ class AuthController extends Controller
         $validated = $request->validated();
 
         // return $url for image and upload the image storage 
-        $image = $request->image->store('profile-photos', 'public');
+        $image = null;
+        if ($request->image)
+        {
+            $image = $request->image->store('profile-photos', 'public');
+        }
 
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'profile_photo_path' => $image,
+            'profile_photo_path' => ($image) ? $image : null,
         ]);
 
 
