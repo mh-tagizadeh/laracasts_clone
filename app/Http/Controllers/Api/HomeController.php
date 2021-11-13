@@ -67,10 +67,11 @@ class HomeController extends Controller
 
     public function get_all_categories()
     {
-        return Category::doesntHave('categories_child')->select('id', 'name')->with('courses')->get()->map(function($category) {
+        return Category::doesntHave('categories_child')->select('id', 'name', 'slug')->with('courses')->get()->map(function($category) {
             return [
                 'id' => $category->id,
                 'name' => $category->name,
+                'slug' => $category->slug,
                 'courses_count' => $category->courses->count(),
                 'video_count' => $category->child_category_lessons_count(),
             ];
