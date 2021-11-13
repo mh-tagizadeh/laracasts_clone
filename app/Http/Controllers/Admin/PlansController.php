@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Plan;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class PlansController extends Controller
 {
@@ -22,7 +25,7 @@ class PlansController extends Controller
 
         $plans = Plan::all();
 
-        return Inertia::render('Plan/Index', [
+        return Inertia::render('Plans/Index', [
             'plans' => $plans
         ]);
     }
