@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\TeamPlan;
 use Illuminate\Support\Str;
 
-class TeamPlanSeeder extends Seeder
+class TeamPlansSeeder extends Seeder
 {
     /**
      * Run the database seeds.

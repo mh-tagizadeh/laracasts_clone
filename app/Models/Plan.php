@@ -11,6 +11,6 @@ class Plan extends Model
     use HasFactory, ModelTrait;
 
     protected $fillable = [
-        'title', 'slug', 'description', 'current_price', 'subscription_duration_in_months', 'is_active'
+        'title', 'slug', 'description', 'current_price', 'duration', 'status'
     ];
 }

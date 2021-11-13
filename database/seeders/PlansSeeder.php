@@ -19,25 +19,25 @@ class PlansSeeder extends Seeder
             'title' => 'monthly',
             'slug' => Str::slug('monthly'),
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sit sequi itaque laborum, voluptatibus at illum doloremque magnam consequuntur, error odio ullam fugit explicabo tenetur quae quod harum earum ipsam?',
-            'current_price' => 2000,
-            'is_active' => true,
-            'subscription_duration_in_months' => 1,
+            'current_price' => 50000,
+            'status' => true,
+            'duration' => 1,
         ]);
         Plan::create([
             'title' => 'yearly',
             'slug' => Str::slug('yearly'),
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sit sequi itaque laborum, voluptatibus at illum doloremque magnam consequuntur, error odio ullam fugit explicabo tenetur quae quod harum earum ipsam?',
-            'current_price' => 1000000,
-            'is_active' => true,
-            'subscription_duration_in_months' => 12,
+            'current_price' => 500000,
+            'status' => true,
+            'duration' => 12,
         ]);
         Plan::create([
             'title' => 'forever',
             'slug' => Str::slug('forever'),
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sit sequi itaque laborum, voluptatibus at illum doloremque magnam consequuntur, error odio ullam fugit explicabo tenetur quae quod harum earum ipsam?',
-            'current_price' => 10000000,
-            'is_active' => true,
-            'subscription_duration_in_months' => 48,
+            'current_price' => 5000000,
+            'status' => true,
+            'duration' => 48,
         ]);
     }
 }

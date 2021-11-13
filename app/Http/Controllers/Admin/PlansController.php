@@ -23,7 +23,7 @@ class PlansController extends Controller
             abort(403);
         }
 
-        $plans = Plan::select('id', 'title', 'current_price', 'is_active', 'subscription_duration_in_months')->get();
+        $plans = Plan::select('id', 'title', 'current_price', 'status', 'duration')->get();
 
         return Inertia::render('Plans/Index', [
             'plans' => $plans

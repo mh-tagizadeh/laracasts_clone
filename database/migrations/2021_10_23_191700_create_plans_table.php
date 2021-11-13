@@ -19,8 +19,8 @@ class CreatePlansTable extends Migration
             $table->string('slug');
             $table->text('description');
             $table->integer('current_price');
-            $table->integer('subscription_duration_in_months');
-            $table->boolean('is_active');
+            $table->integer('duration');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             LessonsSeeder::class,
             VideoSeeder::class,
             PlansSeeder::class,
+            TeamPlansSeeder::class,
         ]);
     }
 }
