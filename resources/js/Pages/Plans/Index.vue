@@ -11,9 +11,11 @@
             	<plan-sections></plan-sections>
             </div>
             <div class="col-span-2 my-10 pr-3">
-                <plans-table :plans='plans'/>
+                <plans-table v-if="plans" :plans='plans'/>
+                <plans-table v-else="team_plans" :plans='team_plans'/>
             </div>
         </div>
+
 
     </app-layout>
 </template>
@@ -31,6 +33,7 @@
         },
         props: {
             'plans' : Object,
+            'team_plans' : Object,
         },
     }
 </script>

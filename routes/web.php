@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\RequestsController;
 use App\Http\Controllers\Admin\LessonsController;
 use App\Http\Controllers\Admin\TeachersController;
 use App\Http\Controllers\Admin\PlansController;
+use App\Http\Controllers\Admin\TeamPlansController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function (){
     Route::resource('lessons', LessonsController::class);
 
     Route::resource('plans', PlansController::class);
+    Route::resource('team-plans', TeamPlansController::class);
 
     Route::get('category/parents', [CategoriesController::class, 'get_parent_categories'])->name('categories.parents');
 
