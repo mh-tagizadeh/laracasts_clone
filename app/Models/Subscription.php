@@ -11,7 +11,7 @@ class Subscription extends Model
     use HasFactory, ModelTrait;
 
     protected $fillable = [
-        'id' , 'user_id', 'team_id', 'plan_id', 'transactoin_id', 'start_at', 'ends_at'
+        'id' , 'user_id', 'plan_id', 'transactoin_id', 'start_at', 'ends_at'
     ];
 
 }
