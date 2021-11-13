@@ -13,9 +13,9 @@ class HomeControllerTest extends TestCase
      *
      * @return void
      */
-    public function test_jet_count_lessons()
+    public function test_get_count_lessons()
     {
-        $response = $this->get('/api/home/get-count-lessons');
+        $response = $this->get('/api/home/count-lessons');
 
         $response->dump();
 
