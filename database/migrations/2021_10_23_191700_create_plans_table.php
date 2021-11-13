@@ -21,8 +21,6 @@ class CreatePlansTable extends Migration
             $table->integer('current_price');
             $table->integer('subscription_duration_in_months');
             $table->boolean('is_active');
-            $table->boolean('is_team');
-            $table->integer('max_member');
             $table->timestamps();
         });
     }

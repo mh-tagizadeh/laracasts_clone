@@ -10,10 +10,10 @@ use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCoursesRequest;
 use App\Http\Requests\UpdateCourseRequest;
-use Inertia\Inertia;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class CoursesController extends Controller
 {
