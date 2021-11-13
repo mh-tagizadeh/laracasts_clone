@@ -69,8 +69,8 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        $user = Auth::user();
-        if(!$user->can('user_management'))
+        $admin = Auth::user();
+        if(!$admin->can('user_management'))
         {
             abort(403);
         }
