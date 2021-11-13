@@ -27,6 +27,7 @@
     },
     "dependencies": {
         "@headlessui/vue": "^1.4.0",
-        "@heroicons/vue": "^1.0.3"
+        "@heroicons/vue": "^1.0.3",
+        "autoprefixer": "^10.4.0"
     }
 }
