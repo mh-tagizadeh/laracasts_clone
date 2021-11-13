@@ -48,13 +48,17 @@ class HomeController extends Controller
             $arr[$x] = random_int(0,Course::count());
         }
 
-        $courses = Course::whereIn('id', $arr)->select('id', 'title', 'description')->with('lessons')->get();
+        $courses = Course::whereIn('id', $arr)->get();
+
+
 
         return $courses->map(function($course) {
             return [
                 'id' => $course->id,
                 'title' => $course->title,
+                'slug' => $course->slug,
                 'description' => $course->description,
+                'category' => [ 'id' => $course->category->id, 'name' => $course->category->name, 'slug' => $course->category->slug ],
                 'lessons_count' => $course->lessons->count(),
             ];
         });
