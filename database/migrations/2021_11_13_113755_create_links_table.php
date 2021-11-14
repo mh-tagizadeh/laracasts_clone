@@ -15,9 +15,7 @@ class CreateLinksTable extends Migration
     {
         Schema::create('links', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('plan_id');
-            $table->integer('transaction_id');
+            $table->integer('payment_id');
             $table->timestamps();
         });
     }

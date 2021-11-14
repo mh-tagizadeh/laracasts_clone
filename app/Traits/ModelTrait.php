@@ -9,6 +9,7 @@ use App\Models\Video;
 use App\Models\Lesson;
 use App\Models\Plan;
 use App\Models\User;
+use App\Models\Payment;
 
 
 Trait ModelTrait
@@ -94,5 +95,9 @@ Trait ModelTrait
         return $this->morphTo();
     }
 
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class);
+    }
 
 }
