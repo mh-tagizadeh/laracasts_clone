@@ -13,4 +13,9 @@ class Plan extends Model
     protected $fillable = [
         'title', 'slug', 'description', 'current_price', 'duration', 'status'
     ];
+
+    public function plan_payments()
+    {
+        return $this->morphMany(Payment::class, 'planable');
+    }
 }

@@ -12,4 +12,9 @@ class TeamPlan extends Model
     protected $fillable = [
     	'title', 'slug', 'description', 'current_price', 'status', 'duration', 'max_member'
     ];
+
+    public function plan_payments()
+    {
+        return $this->morphMany(Payment::class, 'planable');
+    }
 }
