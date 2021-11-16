@@ -13,20 +13,6 @@ use Illuminate\Support\Facades\Storage;
 
 class CategoriesController extends Controller
 {
-
-
-    public function get_name_by_parent_categoires(Category $category) {
-        $arr = array();
-
-        array_push($arr, $category->name);
-        
-        array_push($arr, $category->category->name);
-        
-        $arr = array_reverse($arr);
-        
-        return $arr;
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -75,7 +61,7 @@ class CategoriesController extends Controller
 
         // TODO: show categoery tree in selection parent category and show category name selected while select category 
         return Inertia::render('Categories/Create',[
-            'categories' => Category::where('category_id', null)->get()
+            'categories' => Category::has('categories_child')->get(),        
         ]);
     }
 
@@ -104,17 +90,6 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Category $category)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Category  $category
@@ -132,7 +107,7 @@ class CategoriesController extends Controller
         // TODO: show old selected category in Listbox component front-end.
         return Inertia::render('Categories/Create', [
             'category' => $category,
-            'categories' => Category::where('category_id', null)->get(),
+            'categories' => Category::has('categories_child')->get(),        
         ]);
     }
 
