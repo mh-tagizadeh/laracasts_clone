@@ -33,7 +33,7 @@ class StoreCoursesRequest extends FormRequest
             'description' => 'required',
             'category' => 'required|numeric',
             'teacher' => 'required|numeric',
-            'punished_at' => 'required',
+            'published_at' => 'required',
             'price' => 'required',
             'image' => 'required|mimes:jpg,png,jpeg|max:3000',
         ];

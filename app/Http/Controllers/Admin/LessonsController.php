@@ -56,7 +56,7 @@ class LessonsController extends Controller
      */
     public function show(Lesson $lesson)
     {
-        $str = explode('/', $lesson->video->path);
+        $str = explode('/', $lesson->video->url);
         return Inertia::render('Lessons/Show', [
             'lesson' => $lesson,
             'course'=>$lesson->course->title,

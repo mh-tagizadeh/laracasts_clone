@@ -55,9 +55,9 @@
                         <div v-if="errors.description" class="text-red-600">{{ errors.description}}</div>
                     </div>
                     <div class="flex flex-col p-3 gap-2">
-                        <label for="puinshed_at" class="text-base font-bold">Punished_at</label>
-                        <input type="date" v-model="form.punished_at" name="punished_at" class="w-1/2 rounded-md border-none shadow-2xl ring-1 ring-blue-400 focus:ring-blue-700 focus:ring-2">
-                        <div v-if="errors.punished_at" class="text-red-600">{{ errors.punished_at}}</div>
+                        <label for="published_at" class="text-base font-bold">Published_at</label>
+                        <input type="date" v-model="form.published_at" name="published_at" class="w-1/2 rounded-md border-none shadow-2xl ring-1 ring-blue-400 focus:ring-blue-700 focus:ring-2">
+                        <div v-if="errors.published_at" class="text-red-600">{{ errors.published_at}}</div>
                     </div>
                     <div class="flex flex-col p-3 gap-2">
                         <label for="price" class="text-base font-bold">Price</label>
@@ -112,7 +112,7 @@ export default {
             category: ref(categories[0].id),
             teacher: ref(teachers[0].id),
             description: null,
-            punished_at: null,
+            published_at: null,
             price: null,
             image: null,
         })

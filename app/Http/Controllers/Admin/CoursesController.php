@@ -17,7 +17,6 @@ use Inertia\Inertia;
 
 class CoursesController extends Controller
 {
-    public $courses;
     /**
      * Display a listing of the resource.
      *
@@ -31,21 +30,8 @@ class CoursesController extends Controller
             abort(403);
         }
 
-        $courses = Course::paginate(20)->through(function ($course) {
-            return [
-                'id' => $course->id,
-                'sku' => $course->sku,
-                'title' => $course->title,
-                'category' => $course->category->name,
-                'teacher' => $course->teacher->username,
-                'status' => $course->status,
-                'image' => $course->image ? $course->image->url : '/img/logo.svg',
-            ];
-        });
-
-
         return Inertia::render('Courses/Index', [
-            'courses' => $courses,
+            'courses' => Course::get_courses_paginate(),
         ]);
     }
 
@@ -89,13 +75,13 @@ class CoursesController extends Controller
         $validated = $request->validated();
 
         $course = Course::create([
-            'sku' => 234,
+            'sku' => Str::uuid(),
             'title' => $request->title,
             'slug' => Str::slug($request->slug),
             'description' => $request->description,
             'teacher_id' => $request->teacher,
             'category_id' => $request->category,
-            'punished_at' => $request->punished_at,
+            'published_at' => $request->published_at,
         ]);
 
         // $image = $request->image->store('public');
