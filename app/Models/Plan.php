@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\ModelTrait;
 
-class Plan extends Model 
+class Plan extends Model
 {
     use HasFactory, ModelTrait;
 
@@ -16,6 +16,6 @@ class Plan extends Model
 
     public function plan_payments()
     {
-        return $this->morphMany(Payment::class, 'planable');
+        return $this->morphMany(Subscription::class, 'planable');
     }
 }

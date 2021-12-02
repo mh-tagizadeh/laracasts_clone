@@ -15,6 +15,6 @@ class TeamPlan extends Model
 
     public function plan_payments()
     {
-        return $this->morphMany(Payment::class, 'planable');
+        return $this->morphMany(Subscription::class, 'planable');
     }
 }

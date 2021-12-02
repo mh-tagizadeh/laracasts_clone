@@ -15,8 +15,9 @@ class CreateSubscriptionsTable extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
-            $table->integer('plan_id');
             $table->integer('user_id')->nullable()->unique();
+            $table->string('planable_type');
+            $table->integer('planable_id');
             $table->integer('transaction_id')->unique();
             $table->timestamp('start_at');
             $table->timestamp('end_at')->default(now());
