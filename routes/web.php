@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\LessonsController;
 use App\Http\Controllers\Admin\TeachersController;
 use App\Http\Controllers\Admin\PlansController;
 use App\Http\Controllers\Admin\TeamPlansController;
+use App\Http\Controllers\Admin\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::get('/', function () {
 
 
 
+/**
 Route::middleware(['auth'])->prefix('admin')->group(function (){
 
     Route::resource('categories', CategoriesController::class);
@@ -70,7 +72,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function (){
         Route::get('requests/course', [RequestsController::class, 'requests_course'])->name('teacher.course.requests');
 
         Route::get('request/course/{request}', [RequestsController::class, 'answer_request_course'])->name('teacher.request.course.answer');
-        
+
         Route::post('request/course/{request}', [RequestsController::class, 'accept_request_course'])->name('teacher.request.course.accept');
 
         Route::delete('request/course/{request}', [RequestsController::class, 'reject_request_course'])->name('teacher.request.course.reject');
@@ -86,6 +88,15 @@ Route::middleware(['auth'])->prefix('admin')->group(function (){
 
 });
 
+ */
+
+Route::prefix('auth')->group(function() {
+
+    Route::post('login', [AuthController::class, 'login']);
+
+    Route::post('register', [AuthController::class, 'register']);
+
+});
 
 Route::get('hello', function() {
     return Inertia::render('Hello');
