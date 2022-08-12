@@ -17,11 +17,10 @@ class CreateCoursesTable extends Migration
             $table->id();
             $table->string('sku');
             $table->string('title');
-            $table->string('slug')->unique();
             $table->text('description');
             $table->integer('teacher_id');
             $table->integer('category_id');
-            $table->boolean('state')->default(0);
+            $table->boolean('status')->default(0);
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

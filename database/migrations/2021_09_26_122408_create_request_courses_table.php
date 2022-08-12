@@ -17,7 +17,7 @@ class CreateRequestCoursesTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->text('description_for_admin');
+            $table->text('message_for_admin');
             $table->integer('teacher_id');
             $table->integer('category_id');
             $table->timestamps();
