@@ -23,11 +23,15 @@ Trait ModelTrait
 
 
 
-    public function courses() 
+    public function courses()
     {
         return $this->hasMany(Course::class);
     }
 
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
 
     public function category()
     {
@@ -71,7 +75,7 @@ Trait ModelTrait
     }
 
 
-    public function user() 
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
@@ -81,7 +85,7 @@ Trait ModelTrait
         // todo : create Team model and migration database
     }
 
-    public function plan() 
+    public function plan()
     {
          return $this->belongsTo(Plan::class);
     }
