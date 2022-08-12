@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\ModelTrait;
 
-class Lesson extends Model 
+class Lesson extends Model
 {
     use HasFactory, ModelTrait;
 
 
     protected $fillable = [
-        'title', 'slug', 'description', 'course_id', 'lesson_number',
+        'title', 'description', 'course_id', 'lesson_number',
     ];
 }

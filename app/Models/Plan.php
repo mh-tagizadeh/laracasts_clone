@@ -11,7 +11,7 @@ class Plan extends Model
     use HasFactory, ModelTrait;
 
     protected $fillable = [
-        'title', 'slug', 'description', 'current_price', 'duration', 'status'
+        'title', 'description', 'current_price', 'duration', 'status'
     ];
 
     public function plan_payments()

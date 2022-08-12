@@ -13,6 +13,6 @@ class RequestCourse extends Model
 
 
     protected $fillable = [
-        'title', 'description', 'description_for_admin', 'offer_price', 'teacher_id', 'category_id'
+        'title', 'description', 'message_for_admin', 'offer_price', 'teacher_id', 'category_id'
     ];
 }

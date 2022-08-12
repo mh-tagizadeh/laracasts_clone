@@ -14,10 +14,10 @@ class Category extends Model
 
 
     protected $fillable = [
-        'name', 'slug', 'description', 'category_id'
+        'name', 'description', 'category_id'
     ];
 
-    public function categories_child()
+    public function categories()
     {
         return $this->hasMany(Category::class);
     }
