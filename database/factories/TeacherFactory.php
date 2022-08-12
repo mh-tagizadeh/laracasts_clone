@@ -22,11 +22,10 @@ class TeacherFactory extends Factory
     public function definition()
     {
         return [
-            'uuid' => $this->faker->uuid(), 
+            'uuid' => $this->faker->uuid(),
             'first_name' => $this->faker->firstNameMale(),
             'last_name' => $this->faker->firstNameMale(),
             'username' => $this->faker->username(),
-            'slug' => $this->faker->slug(),
             'description' => $this->faker->text(),
             'phone_number' => $this->faker->phoneNumber(),
             'address' => $this->faker->address(),
